@@ -45,7 +45,7 @@
     <div class="row">
         <div class="col-sm-2">
             <!-- It can be fixed with bootstrap affix http://getbootstrap.com/javascript/#affix-->
-           @include('crudgenerator::layouts._menu')
+           @include('vendor/permaxis/crudgenerator/layouts._menu')
         </div>
         <div class="col-sm-10">
             @yield('content')
