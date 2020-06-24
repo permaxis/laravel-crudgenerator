@@ -1,4 +1,4 @@
-@extends('crudgenerator::layouts.admin')
+@extends('vendor/permaxis/crudgenerator/layouts.admin')
 @section('javascripts')
     @parent
     <script>

@@ -1,4 +1,4 @@
-@extends('crudgenerator::layouts.admin')
+@extends('vendor/permaxis/crudgenerator/layouts.admin')
 @section('content')
     <h1>{{ __('permaxis_crudgenerator::messages.show_entity') }}</h1>
 
