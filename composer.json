@@ -12,9 +12,6 @@
     "autoload": {
         "psr-4": {
             "Permaxis\\CrudGenerator\\": "src/"
-        },
-        "files": [
-            "app/Helpers/helpers.php"
-        ]
+        }
     }
 }
