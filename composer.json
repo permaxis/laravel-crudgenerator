@@ -1,0 +1,20 @@
+{
+    "name": "permaxis/crudgenerator",
+    "description": "Generate a front based on api",
+    "type": "project",
+    "authors": [
+        {
+            "name": "permaxis",
+            "email": "contact@permaxis.fr"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Permaxis\\CrudGenerator\\": "src/"
+        },
+        "files": [
+            "app/Helpers/helpers.php"
+        ]
+    }
+}
