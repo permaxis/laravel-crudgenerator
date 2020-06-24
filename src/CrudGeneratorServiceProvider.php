@@ -49,7 +49,7 @@ class CrudGeneratorServiceProvider extends ServiceProvider
 
     public function registerHelpers()
     {
-        foreach (glob(__DIR__ . '/app/Helpers/*.php') as $file) {
+        foreach (glob(__DIR__ . 'src/app/Helpers/*.php') as $file) {
             require_once($file);
         }
     }
