@@ -31,6 +31,7 @@ class CrudGeneratorCommand extends Command
                            {--sn= : Singular name of the entity (lower)}
                            {--pn= : Plural name of the entity (lower)}
                            {--pk= : Package name}
+                           {--api= : Api enabled}
                            ';
 
     /**
@@ -141,6 +142,18 @@ class CrudGeneratorCommand extends Command
         $byPassViews = $this->option('bv');
         $pluralEntityName =  $this->option('pn');
         $packageName = $this->option('pk');
+        $enabledApi = $this->option('api');
+
+        if (!empty($enabledApi) && $enabledApi == 1)
+        {
+            $controllerSourceClass = 'EntitiesController';
+            $modelSourceClass = 'Entity';
+        }
+        else
+        {
+            $controllerSourceClass = 'EntityModelsController';
+            $modelSourceClass = 'EntityModel';
+        }
 
         $modelClass = $model;
         $shortClassName = $this->getShortNameClass($modelClass);
@@ -191,14 +204,14 @@ class CrudGeneratorCommand extends Command
             if (!file_exists($controllerFile))
             {
 
-                $this->fileSystem->copy(__DIR__. '/../Http/Controllers/EntitiesController.php', $controllerFile);
+                $this->fileSystem->copy(__DIR__. '/../Http/Controllers/'.$controllerSourceClass.'.php', $controllerFile);
 
             }
 
             if (file_exists($controllerFile))
             {
                 //replace namespace
-                $cmd = "sed -i 's/class\sEntitiesController/class ".$controllerClass."/g' ".$controllerFile;
+                $cmd = "sed -i 's/class\s{$controllerSourceClass}/class ".$controllerClass."/g' ".$controllerFile;
                 //echo $cmd;
                 $output = exec($cmd);
 
@@ -208,7 +221,7 @@ class CrudGeneratorCommand extends Command
                 $output = exec($cmd);
 
                 //replace Model Class Permaxis\CrudGenerator\app\Entities\ApiEntity by modelClass
-                $cmd = "sed -i 's/use\sPermaxis\\\\CrudGenerator\\\\App\\\\Entities\\\\ApiEntity/use ".str_replace('\\','\\\\',$modelClass)."/g' ".$controllerFile;
+                $cmd = "sed -i 's/use\sPermaxis\\\\CrudGenerator\\\\App\\\\Entities\\\\{$modelSourceClass}/use ".str_replace('\\','\\\\',$modelClass)."/g' ".$controllerFile;
                 $output = exec($cmd);
 
                 //replace routes names in controller
@@ -262,9 +275,11 @@ class CrudGeneratorCommand extends Command
                     //replace routes names in views
                     $this->replaceRouteNames($routeNamePrefix,$pluralModel,$file);
 
-                    //comment attributes in controller
+                    //comment attributes in views
                     $this->replaceInFile('{{--bc--}}','{{--',$file);
                     $this->replaceInFile('{{--ec--}}','--}}',$file);
+                    $this->replaceInFile('\/\*bc\*\/','\/\*',$file);
+                    $this->replaceInFile('\/\*ec\*\/','\*\/',$file);
 
                     //replace views names in views
                     $this->replaceViewNames($subViewsDir,$pluralModel,$file,$packageName);

@@ -50,8 +50,8 @@
 
     @include('crudgenerator::entities.search')
 
-    <h5><strong>{{ $entities['meta']['total']. ' ' .Str::plural('entity', ($entities['meta']['total'] <=1 )? 1 : 2) }}</strong></h5>
-    @if (count($entities['data']))
+    <h5><strong>{{ $total }} entities</strong></h5>
+    @if (count($entities))
         <div class="table-responsive" id="list-items">
             <table class="table-striped table-bordered table-hover table-condensed">
                 <thead>
@@ -68,7 +68,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($entities['data'] as $item)
+                @foreach($entities as $item)
                     <tr data-id="{{ $item->id }}" {{--data-name="{{ $item->name }}--}}">
                         <td><a href="{{ route('crudgenerator.entities.show' , ['id' => $item->id]) }}">{{ $item->id }}</a></td>
                     {{--bc--}}<td class="inline-update-field"{!! permaxis_inline_update_field(route('crudgenerator.entities.update',['id' => $item->id]), $item->id, 'name', $item->name,  $item->name) !!}>{{ $item->name }}</td>
@@ -135,7 +135,7 @@
                     <a href="{{ route('crudgenerator.entities.create') }}" class="btn btn-primary" >{{ __('permaxis_crudgenerator::messages.create_entity') }}</a>
                 </div>
             </li>
-            @if (count($entities['data']))
+            @if (count($entities))
                 <li>
                     <div class="form-group">
                         <a href="#" data-toggle="modal"  data-target="#modal-delete-selected-items" class="btn btn-primary" >{{ __('permaxis_crudgenerator::messages.delete_entity') }}</a>

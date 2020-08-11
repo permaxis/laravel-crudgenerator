@@ -6,8 +6,8 @@
         <tr><th>Id:</th><td>{{ $entity->id }}</td></tr>
         {{--bc--}}<tr><th>Name:</th><td>{{ $entity->name }}</td></tr>
         <tr><th>{{ __('permaxis_crudgenerator::messages.entity.enabled') }}:</th><td>{{ ($entity->enabled)? 'Yes':'No' }}</td></tr>{{--ec--}}
-        <tr><th>{{ __('permaxis_crudgenerator::messages.entity.created_at') }}:</th><td>{{  $entity->created_at->format('d/m/Y H:i:s') }}</td></tr>{{--ec--}}
-        <tr><th>{{ __('permaxis_crudgenerator::messages.entity.updated_at') }}:</th><td>{{  $entity->updated_at->format('d/m/Y H:i:s') }}</td></tr>{{--ec--}}
+        <tr><th>{{ __('permaxis_crudgenerator::messages.entity.created_at') }}:</th><td>{{  $entity->created_at->format('d/m/Y H:i:s') }}</td></tr>
+        <tr><th>{{ __('permaxis_crudgenerator::messages.entity.updated_at') }}:</th><td>{{  $entity->updated_at->format('d/m/Y H:i:s') }}</td></tr>
     </table>
 
     <ul class="list-inline">

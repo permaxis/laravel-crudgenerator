@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Permaxis\Core\App\Services\Paginator\Paginator;
-use Permaxis\CrudGenerator\App\Entities\Entity as Entity;
+use Permaxis\CrudGenerator\App\Entities\EntityModel as Entity;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class EntitiesController extends Controller
+class EntityModelsController extends Controller
 {
 
     /**
@@ -52,18 +52,18 @@ class EntitiesController extends Controller
 
         $this->processSearch($request, $qb);
 
-        $qb->orderBy($sortBy, $sortDir)->paginate($page,5);
 
-        $results = $qb->all()->get();
+        $pagination = $qb->orderBy($sortBy, $sortDir)->paginate(5,'*','page',$page);
+        $total = $pagination->total();
 
-        $entities = $results['data'];
-        $total = 0;
-        if (isset($results['meta']['total']))
-        {
-            $total = $results['meta']['total'];
-        }
-        //process  pagination
-        $paginator = $this->processPagination($request, $results, 'crudgenerator.entities.index');
+        $entities = $qb->get();
+
+         //process  pagination
+        $paginator = $this->processPagination($request, [
+            'total' => $total,
+            'per_page' => $pagination->perPage(),
+            'current_page' => $pagination->currentPage()
+        ], 'crudgenerator.entities.index');
 
         return View::make('crudgenerator::entities.index', compact(
             'entities',
@@ -362,14 +362,14 @@ class EntitiesController extends Controller
     }
 
 
-    public function processPagination(Request $request, $entities, $rout_name)
+    public function processPagination(Request $request, $pagination , $rout_name)
     {
         $input = $request->all();
 
         $paginator = new Paginator(
-            $entities['meta']['total'],
-            $entities['meta']['per_page'],
-            $entities['meta']['current_page'],
+            $pagination['total'],
+            $pagination['per_page'],
+            $pagination['current_page'],
             route($rout_name, array_merge($input, array('page' => 'num')))
         );
 

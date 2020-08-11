@@ -11,7 +11,6 @@
         </div>
         <div class="navbar-collapse collapse sidebar-navbar-collapse">
             <ul class="nav navbar-nav">
-                {{--bc--}}<li class="{{ (Route::currentRouteName() == 'crudgenerator.entities.index')? 'active' : '' }}"><a href="{{ route('crudgenerator.entities.index') }}">Entities</a></li>{{--ec--}}
             </ul>
         </div><!--/.nav-collapse -->
     </div>
