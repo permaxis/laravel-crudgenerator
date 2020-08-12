@@ -284,6 +284,9 @@ class CrudGeneratorCommand extends Command
                     //replace views names in views
                     $this->replaceViewNames($subViewsDir,$pluralModel,$file,$packageName);
 
+                    //replace translations
+                    $this->replaceInFile('.messages.', $pluralModel, $file);
+
                 };
 
                 //copy layouts dir to target dir;
@@ -373,4 +376,5 @@ class CrudGeneratorCommand extends Command
         $cmd = "sed -i 's/{$str_source}/{$str_target}/g' ".$file;
         $output = exec($cmd);
     }
+
 }

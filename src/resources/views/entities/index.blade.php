@@ -36,7 +36,7 @@
     </script>
 @endsection
 @section('content')
-    <h1>{{ __('permaxis_crudgenerator::messages.entities_list') }}</h1>
+    <h1>{{ pxcg_trans('permaxis_crudgenerator::entities.entities_list') }}</h1>
     @if (session('deleteAction') && session('deleteAction') == 'success')
         <div class="alert alert-success">
             {{ __('permaxis_crudgenerator::messages.entity_deleted_with_success') }}
