@@ -1,4 +1,4 @@
-<h3>{{ __('permaxis_crudgenerator::messages.search') }}</h3>
+<h3>{{ pxcg_trans('permaxis_crudgenerator::messages.search') }}</h3>
 <div class="row">
     <div class="col-sm-6">
         {!! Form::Open(array('url' => route('crudgenerator.entities.index'),'method' => 'GET')) !!}
@@ -13,7 +13,7 @@
         </div>{{--ec--}}
 
         <div class="form-group">
-            {!! Form::submit(__('permaxis_crudgenerator::messages.search'),['class' => 'btn btn-primary btn-sm','id' => 'search-items']) !!}
+            {!! Form::submit(pxcg_trans('permaxis_crudgenerator::messages.search'),['class' => 'btn btn-primary btn-sm','id' => 'search-items']) !!}
         </div>
 
         @if (isset($errors) && count($errors))

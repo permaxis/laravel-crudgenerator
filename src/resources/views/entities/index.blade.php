@@ -36,15 +36,15 @@
     </script>
 @endsection
 @section('content')
-    <h1>{{ pxcg_trans('permaxis_crudgenerator::entities.entities_list') }}</h1>
+    <h1>{{ pxcg_trans('permaxis_crudgenerator::messages.entities_list') }}</h1>
     @if (session('deleteAction') && session('deleteAction') == 'success')
         <div class="alert alert-success">
-            {{ __('permaxis_crudgenerator::messages.entity_deleted_with_success') }}
+            {{ pxcg_trans('permaxis_crudgenerator::messages.entity_deleted_with_success') }}
         </div>
     @endif
     @if (session('createAction') && session('createAction') == 'success')
         <div class="alert alert-success">
-            {{ __('permaxis_crudgenerator::messages.entity_created_with_success') }}
+            {{ pxcg_trans('permaxis_crudgenerator::messages.entity_created_with_success') }}
         </div>
     @endif
 
@@ -58,9 +58,9 @@
                 <tr>
                     <th><a href="{{ route('crudgenerator.entities.index', $sorting['id'] ) }}" class="sort-item">Id</a>{!! permaxis_sort_item($sortBy, $sortDir, 'id') !!}</th>
                     {{--bc--}}<th><a href="{{ route('crudgenerator.entities.index', $sorting['name'] )}}" class="sort-item">Name</a>{!! permaxis_sort_item($sortBy, $sortDir, 'name') !!}</th>
-                    <th><a href="{{ route('crudgenerator.entities.index', $sorting['enabled'] )}}" class="sort-item">{{ __('permaxis_crudgenerator::messages.entity.enabled') }}</a>{!! permaxis_sort_item($sortBy, $sortDir, 'enabled') !!}</th>{{--ec--}}
-                    <th><a href="{{ route('crudgenerator.entities.index', $sorting['created_at'] )}}" class="sort-item">{{ __('permaxis_crudgenerator::messages.entity.created_at') }}</a>{!! permaxis_sort_item($sortBy, $sortDir, 'created_at') !!}</th>
-                    <th><a href="{{ route('crudgenerator.entities.index', $sorting['updated_at'] )}}" class="sort-item">{{ __('permaxis_crudgenerator::messages.entity.updated_at') }}</a>{!! permaxis_sort_item($sortBy, $sortDir, 'updated_at') !!}</th>
+                    <th><a href="{{ route('crudgenerator.entities.index', $sorting['enabled'] )}}" class="sort-item">{{ pxcg_trans('permaxis_crudgenerator::messages.entity.enabled') }}</a>{!! permaxis_sort_item($sortBy, $sortDir, 'enabled') !!}</th>{{--ec--}}
+                    <th><a href="{{ route('crudgenerator.entities.index', $sorting['created_at'] )}}" class="sort-item">{{ pxcg_trans('permaxis_crudgenerator::messages.entity.created_at') }}</a>{!! permaxis_sort_item($sortBy, $sortDir, 'created_at') !!}</th>
+                    <th><a href="{{ route('crudgenerator.entities.index', $sorting['updated_at'] )}}" class="sort-item">{{ pxcg_trans('permaxis_crudgenerator::messages.entity.updated_at') }}</a>{!! permaxis_sort_item($sortBy, $sortDir, 'updated_at') !!}</th>
                     <th>Actions</th>
                     <th>
                         {!! Form::checkbox('selectAllItems',1,null,['id' => 'selectAllItems']) !!}
@@ -78,10 +78,10 @@
                         <td>
                             <ul class="list list-inline">
                                 @if (!isset($layout) || (isset($layout) && $layout=='index'))
-                                    <li><a href="{{ route('crudgenerator.entities.show' , ['id' => $item->id]) }}">{{ __('permaxis_crudgenerator::messages.show') }}</a></li>
-                                    <li><a href="{{ route('crudgenerator.entities.edit' , ['id' => $item->id]) }}">{{ __('permaxis_crudgenerator::messages.edit') }}</a></li>
+                                    <li><a href="{{ route('crudgenerator.entities.show' , ['id' => $item->id]) }}">{{ pxcg_trans('permaxis_crudgenerator::messages.show') }}</a></li>
+                                    <li><a href="{{ route('crudgenerator.entities.edit' , ['id' => $item->id]) }}">{{ pxcg_trans('permaxis_crudgenerator::messages.edit') }}</a></li>
                                     <li>
-                                        <a href="#" data-toggle="modal" data-target="#myModal-{{ $item->id }}">{{ __('permaxis_crudgenerator::messages.delete') }}</a>
+                                        <a href="#" data-toggle="modal" data-target="#myModal-{{ $item->id }}">{{ pxcg_trans('permaxis_crudgenerator::messages.delete') }}</a>
                                         <!-- Modal -->
                                         <div class="modal fade" id="myModal-{{ $item->id }}" role="dialog">
                                             <div class="modal-dialog">
@@ -91,16 +91,16 @@
                                                     {!! Form::Open(array('url' => route('crudgenerator.entities.destroy',['id' => $item->id]),'method' => 'DELETE')) !!}
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title">{{ __('permaxis_crudgenerator::messages.alert_suppression') }}</h4>
+                                                        <h4 class="modal-title">{{ pxcg_trans('permaxis_crudgenerator::messages.alert_suppression') }}</h4>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <h1>{{ __('permaxis_crudgenerator::messages.confirm_delete_item') }} {{--{{ $item->name }} --}}</h1>
+                                                        <h1>{{ pxcg_trans('permaxis_crudgenerator::messages.confirm_delete_item') }} {{--{{ $item->name }} --}}</h1>
                                                         <div class="form-group">
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('permaxis_crudgenerator::messages.cancel') }}</button>
-                                                        {!! Form::submit(__('permaxis_crudgenerator::messages.confirm'),['class' => 'btn btn-primary']) !!}
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">{{ pxcg_trans('permaxis_crudgenerator::messages.cancel') }}</button>
+                                                        {!! Form::submit(pxcg_trans('permaxis_crudgenerator::messages.confirm'),['class' => 'btn btn-primary']) !!}
                                                     </div>
                                                     {!! Form::close() !!}
                                                 </div>
@@ -132,13 +132,13 @@
         @if (Route::currentRouteName() == 'crudgenerator.entities.index' || Route::currentRouteName() == 'crudgenerator::crudgenerator.entities.search' )
             <li>
                 <div class="form-group">
-                    <a href="{{ route('crudgenerator.entities.create') }}" class="btn btn-primary" >{{ __('permaxis_crudgenerator::messages.create_entity') }}</a>
+                    <a href="{{ route('crudgenerator.entities.create') }}" class="btn btn-primary" >{{ pxcg_trans('permaxis_crudgenerator::messages.create_entity') }}</a>
                 </div>
             </li>
             @if (count($entities))
                 <li>
                     <div class="form-group">
-                        <a href="#" data-toggle="modal"  data-target="#modal-delete-selected-items" class="btn btn-primary" >{{ __('permaxis_crudgenerator::messages.delete_entity') }}</a>
+                        <a href="#" data-toggle="modal"  data-target="#modal-delete-selected-items" class="btn btn-primary" >{{ pxcg_trans('permaxis_crudgenerator::messages.delete_entity') }}</a>
                     </div>
                 </li>
             @endif
@@ -152,16 +152,16 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">{{ __('permaxis_crudgenerator::messages.alert_suppression') }}</h4>
+                    <h4 class="modal-title">{{ pxcg_trans('permaxis_crudgenerator::messages.alert_suppression') }}</h4>
                 </div>
                 <div class="modal-body">
-                    <h1>{{ __('permaxis_crudgenerator::messages.confirm_delete_selected_entities') }}</h1>
+                    <h1>{{ pxcg_trans('permaxis_crudgenerator::messages.confirm_delete_selected_entities') }}</h1>
                     <div class="form-group">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('permaxis_crudgenerator::messages.cancel') }}</button>
-                    {!! Form::submit(__('permaxis_crudgenerator::messages.confirm'),['id'=>'delete-selected-items', 'class' => 'btn btn-primary']) !!}
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ pxcg_trans('permaxis_crudgenerator::messages.cancel') }}</button>
+                    {!! Form::submit(pxcg_trans('permaxis_crudgenerator::messages.confirm'),['id'=>'delete-selected-items', 'class' => 'btn btn-primary']) !!}
                 </div>
             </div>
 

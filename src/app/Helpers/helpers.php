@@ -33,5 +33,9 @@ if (! function_exists('pxcg_trans')) {
                 return $key;
             }
         }
+        else
+        {
+            return $result;
+        }
     }
 }
