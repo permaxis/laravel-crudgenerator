@@ -56,11 +56,11 @@
             <table class="table-striped table-bordered table-hover table-condensed">
                 <thead>
                 <tr>
-                    <th><a href="{{ route('crudgenerator.entities.index', $sorting['id'] ) }}" class="sort-item">Id</a>{!! permaxis_sort_item($sortBy, $sortDir, 'id') !!}</th>
-                    {{--bc--}}<th><a href="{{ route('crudgenerator.entities.index', $sorting['name'] )}}" class="sort-item">Name</a>{!! permaxis_sort_item($sortBy, $sortDir, 'name') !!}</th>
-                    <th><a href="{{ route('crudgenerator.entities.index', $sorting['enabled'] )}}" class="sort-item">{{ pxcg_trans('permaxis_crudgenerator::messages.entity.enabled') }}</a>{!! permaxis_sort_item($sortBy, $sortDir, 'enabled') !!}</th>{{--ec--}}
-                    <th><a href="{{ route('crudgenerator.entities.index', $sorting['created_at'] )}}" class="sort-item">{{ pxcg_trans('permaxis_crudgenerator::messages.entity.created_at') }}</a>{!! permaxis_sort_item($sortBy, $sortDir, 'created_at') !!}</th>
-                    <th><a href="{{ route('crudgenerator.entities.index', $sorting['updated_at'] )}}" class="sort-item">{{ pxcg_trans('permaxis_crudgenerator::messages.entity.updated_at') }}</a>{!! permaxis_sort_item($sortBy, $sortDir, 'updated_at') !!}</th>
+                    <th><a href="{{ route('crudgenerator.entities.index', $sorting['id'] ) }}" class="sort-item">Id</a>{!! pxcg_sort_item($sortBy, $sortDir, 'id') !!}</th>
+                    {{--bc--}}<th><a href="{{ route('crudgenerator.entities.index', $sorting['name'] )}}" class="sort-item">Name</a>{!! pxcg_sort_item($sortBy, $sortDir, 'name') !!}</th>
+                    <th><a href="{{ route('crudgenerator.entities.index', $sorting['enabled'] )}}" class="sort-item">{{ pxcg_trans('permaxis_crudgenerator::messages.entity.enabled') }}</a>{!! pxcg_sort_item($sortBy, $sortDir, 'enabled') !!}</th>{{--ec--}}
+                    <th><a href="{{ route('crudgenerator.entities.index', $sorting['created_at'] )}}" class="sort-item">{{ pxcg_trans('permaxis_crudgenerator::messages.entity.created_at') }}</a>{!! pxcg_sort_item($sortBy, $sortDir, 'created_at') !!}</th>
+                    <th><a href="{{ route('crudgenerator.entities.index', $sorting['updated_at'] )}}" class="sort-item">{{ pxcg_trans('permaxis_crudgenerator::messages.entity.updated_at') }}</a>{!! pxcg_sort_item($sortBy, $sortDir, 'updated_at') !!}</th>
                     <th>Actions</th>
                     <th>
                         {!! Form::checkbox('selectAllItems',1,null,['id' => 'selectAllItems']) !!}
@@ -71,8 +71,8 @@
                 @foreach($entities as $item)
                     <tr data-id="{{ $item->id }}" {{--data-name="{{ $item->name }}--}}">
                         <td><a href="{{ route('crudgenerator.entities.show' , ['id' => $item->id]) }}">{{ $item->id }}</a></td>
-                    {{--bc--}}<td class="inline-update-field"{!! permaxis_inline_update_field(route('crudgenerator.entities.update',['id' => $item->id]), $item->id, 'name', $item->name,  $item->name) !!}>{{ $item->name }}</td>
-                        <td class="inline-update-field"{!! permaxis_inline_update_field(route('crudgenerator.entities.update',['id' => $item->id]), $item->enabled, 'enabled', $item->enabled,  ($item->enabled)?  'Yes' : 'No', ($item->enabled)?  'Yes' : 'No') !!}>{{ ($item->enabled) ? 'Yes' : 'No' }}</td>{{--ec--}}
+                    {{--bc--}}<td class="inline-update-field"{!! pxcg_inline_update_field(route('crudgenerator.entities.update',['id' => $item->id]), $item->id, 'name', $item->name,  $item->name) !!}>{{ $item->name }}</td>
+                        <td class="inline-update-field"{!! pxcg_inline_update_field(route('crudgenerator.entities.update',['id' => $item->id]), $item->enabled, 'enabled', $item->enabled,  ($item->enabled)?  'Yes' : 'No', ($item->enabled)?  'Yes' : 'No') !!}>{{ ($item->enabled) ? 'Yes' : 'No' }}</td>{{--ec--}}
                         <td>{{  $item->created_at->format('d/m/Y H:i:s') }}</td>
                         <td>{{  $item->updated_at->format('d/m/Y H:i:s')  }}</td>
                         <td>
