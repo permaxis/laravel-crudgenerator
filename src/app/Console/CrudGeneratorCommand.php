@@ -285,7 +285,7 @@ class CrudGeneratorCommand extends Command
                     $this->replaceViewNames($subViewsDir,$pluralModel,$file,$packageName);
 
                     //replace translations
-                    $this->replaceInFile('.messages.', $pluralModel, $file);
+                    $this->replaceInFile('.messages.', '.'.$pluralModel.'.', $file);
 
                 };
 
