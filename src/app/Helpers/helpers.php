@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Facades\Route;
+
 if (! function_exists('pxcg_sort_item')) {
     function pxcg_sort_item($sortBy, $sortDir, $key ) {
         $icon = (isset($sortBy) && $sortBy == $key && isset($sortDir) && $sortDir== 'desc')? 'glyphicon-chevron-down' : 'glyphicon-chevron-up' ;
@@ -37,5 +39,13 @@ if (! function_exists('pxcg_trans')) {
         {
             return $result;
         }
+    }
+}
+
+if (! function_exists('pxcg_menu')) {
+    function pxcg_menu_item($title, $route_name)
+    {
+        $menu_item = '<li class="'.((Route::currentRouteName() == $route_name)? 'active' : '') .'"><a href="'.route($route_name).'">'.$title.'</a></li>';
+        return $menu_item;
     }
 }
