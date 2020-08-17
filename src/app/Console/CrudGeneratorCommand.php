@@ -32,6 +32,7 @@ class CrudGeneratorCommand extends Command
                            {--pn= : Plural name of the entity (lower)}
                            {--pk= : Package name}
                            {--api= : Api enabled}
+                           {--bs=3 : Bootstrap version}
                            ';
 
     /**
@@ -143,6 +144,7 @@ class CrudGeneratorCommand extends Command
         $pluralEntityName =  $this->option('pn');
         $packageName = $this->option('pk');
         $enabledApi = $this->option('api');
+        $bootstrapVersion = $this->option('bs');
 
         if (!empty($enabledApi) && $enabledApi == 1)
         {
@@ -225,10 +227,10 @@ class CrudGeneratorCommand extends Command
                 $output = exec($cmd);
 
                 //replace routes names in controller
-                $this->replaceRouteNames($routeNamePrefix,$pluralModel,$controllerFile);
+                $this->replaceRouteNames($routeNamePrefix,$pluralModel,$controllerFile, $bootstrapVersion='bs3');
 
                 //replace views names in controller
-                $this->replaceViewNames($subViewsDir,$pluralModel,$controllerFile, $packageName);
+                $this->replaceViewNames($subViewsDir,$pluralModel,$controllerFile, $packageName, $bootstrapVersion);
 
                 //comment attributes in controller
                 $this->replaceInFile('\/\*bc\*\/','\/\*',$controllerFile);
@@ -261,7 +263,7 @@ class CrudGeneratorCommand extends Command
 
             if (file_exists($viewsDir))
             {
-                $sourceViewsDir = __DIR__.'/../../resources/views';
+                $sourceViewsDir = __DIR__.'/../../resources/views/bs'.$bootstrapVersion;
                 if (!file_exists($sourceViewsDir))
                 {
                     throw new\Exception($sourceViewsDir .' does not exists');
@@ -273,7 +275,7 @@ class CrudGeneratorCommand extends Command
                 foreach ($this->fileSystem->allFiles($targetViews) as $file)
                 {
                     //replace routes names in views
-                    $this->replaceRouteNames($routeNamePrefix,$pluralModel,$file);
+                    $this->replaceRouteNames($routeNamePrefix, $pluralModel, $file, $bootstrapVersion);
 
                     //comment attributes in views
                     $this->replaceInFile('{{--bc--}}','{{--',$file);
@@ -282,7 +284,7 @@ class CrudGeneratorCommand extends Command
                     $this->replaceInFile('\/\*ec\*\/','\*\/',$file);
 
                     //replace views names in views
-                    $this->replaceViewNames($subViewsDir,$pluralModel,$file,$packageName);
+                    $this->replaceViewNames($subViewsDir,$pluralModel,$file,$packageName, $bootstrapVersion);
 
                     //replace translations
                     $this->replaceInFile('::messages.', '::'.$pluralModel.'.', $file);
@@ -296,10 +298,10 @@ class CrudGeneratorCommand extends Command
                     foreach ($this->fileSystem->allFiles($targetViews) as $file)
                     {
                         //replace routes names in layouts
-                        $this->replaceRouteNames($routeNamePrefix,$pluralModel,$file);
+                        $this->replaceRouteNames($routeNamePrefix, $pluralModel, $file, $bootstrapVersion);
 
                         //replace views names in layouts
-                        $this->replaceViewNames($subViewsDir,$pluralModel,$file,$packageName);
+                        $this->replaceViewNames($subViewsDir, $pluralModel, $file, $packageName, $bootstrapVersion);
 
                     };
                 }
@@ -324,7 +326,7 @@ class CrudGeneratorCommand extends Command
     }
 
 
-    public function replaceRouteNames($routeNamePrefix= '', $pluralModel, $file)
+    public function replaceRouteNames($routeNamePrefix= '', $pluralModel, $file, $bootstrapVersion = 'bs3')
     {
         if (!empty($routeNamePrefix))
         {
@@ -335,7 +337,7 @@ class CrudGeneratorCommand extends Command
             $route_name = 'crudgenerator.'.$pluralModel.'.';
         }
 
-        $cmd = "sed -i 's/crudgenerator.entities./".$route_name."/g' ".$file;
+        $cmd = "sed -i 's/crudgenerator.bs{$bootstrapVersion}.entities./".$route_name."/g' ".$file;
 
         $output = exec($cmd);
 
@@ -345,7 +347,7 @@ class CrudGeneratorCommand extends Command
 
     }
 
-    public function replaceViewNames($subViewDir = '', $pluralModel, $file, $packageName = '')
+    public function replaceViewNames($subViewDir = '', $pluralModel, $file, $packageName = '', $bootstrapVersion = 3)
     {
         $dir = '';
         if (!empty($subViewDir))
@@ -361,12 +363,12 @@ class CrudGeneratorCommand extends Command
         }
 
         //replace view model names
-        $cmd = "sed -i 's/crudgenerator::entities./".$view_name."/g' ".$file;
+        $cmd = "sed -i 's/crudgenerator::bs{$bootstrapVersion}\\/entities./".$view_name."/g' ".$file;
         $output = exec($cmd);
 
         //replace  view layouts name
         $layout_name = $dir.'layouts.';
-        $cmd = "sed -i 's/crudgenerator::layouts./".$layout_name."/g' ".$file;
+        $cmd = "sed -i 's/crudgenerator::bs{$bootstrapVersion}\\/layouts./".$layout_name."/g' ".$file;
         $output = exec($cmd);
 
     }

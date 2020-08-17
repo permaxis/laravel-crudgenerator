@@ -63,9 +63,9 @@ class EntityModelsController extends Controller
             'total' => $total,
             'per_page' => $pagination->perPage(),
             'current_page' => $pagination->currentPage()
-        ], 'crudgenerator.entities.index');
+        ], $this->routeNamePrefix().'.index');
 
-        return View::make('crudgenerator::entities.index', compact(
+        return View::make('crudgenerator::bs3/entities.index', compact(
             'entities',
             'total',
             'sortBy',
@@ -83,7 +83,7 @@ class EntityModelsController extends Controller
      */
     public function create()
     {
-        return view('crudgenerator::entities.create');
+        return view('crudgenerator::bs3/entities.create');
     }
 
     /**
@@ -108,14 +108,14 @@ class EntityModelsController extends Controller
 
             if (isset($params['createAndAddAnother']))
             {
-                return redirect(route('crudgenerator.entities.create'));
+                return redirect(route($this->routeNamePrefix().'.create'));
             }
-            return redirect(route('crudgenerator.entities.index'));
+            return redirect(route($this->routeNamePrefix().'.index'));
         }
         else
         {
             Session::flash('createAction','failed');
-            return view('crudgenerator::entities.create',compact('entity'));
+            return view('crudgenerator::bs3/entities.create',compact('entity'));
         }
 
     }
@@ -130,7 +130,7 @@ class EntityModelsController extends Controller
     {
         $entity = Entity::query()->find($id);
 
-        return view('crudgenerator::entities.show',compact('entity'));
+        return view('crudgenerator::bs3/entities.show',compact('entity'));
     }
 
     /**
@@ -142,7 +142,7 @@ class EntityModelsController extends Controller
     public function edit($id)
     {
         $entity = Entity::query()->find($id);
-        return view('crudgenerator::entities.edit', compact('entity'));
+        return view('crudgenerator::bs3/entities.edit', compact('entity'));
     }
 
     /**
@@ -173,7 +173,7 @@ class EntityModelsController extends Controller
             }
 
             Session::flash('updateAction','success');
-            return redirect()->route('crudgenerator.entities.edit',['id' => $entity->id])->with('updateAction','success');
+            return redirect()->route($this->routeNamePrefix().'.edit',['id' => $entity->id])->with('updateAction','success');
         }
         else
         {
@@ -187,7 +187,7 @@ class EntityModelsController extends Controller
             }
 
             Session::flash('updateAction','failed');
-            return view('crudgenerator::entities.edit',compact('entity'));
+            return view('crudgenerator::bs3/entities.edit',compact('entity'));
         }
 
         //return $entity;
@@ -205,7 +205,7 @@ class EntityModelsController extends Controller
     {
         $entity = Entity::query()->find($id);
 
-        return view('crudgenerator::entities.delete',compact('entity'));
+        return view('crudgenerator::bs3/entities.delete',compact('entity'));
     }
 
     /**
@@ -222,7 +222,7 @@ class EntityModelsController extends Controller
 
         Session ::flash('deleteAction','success');
 
-        return redirect(route('crudgenerator.entities.index'));
+        return redirect(route($this->routeNamePrefix().'.index'));
     }
 
     /**
@@ -375,6 +375,11 @@ class EntityModelsController extends Controller
 
         return $paginator;
 
+    }
+
+    public function routeNamePrefix()
+    {
+        return 'crudgenerator.bs3.entities';
     }
 
 }

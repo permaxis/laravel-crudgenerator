@@ -43,9 +43,15 @@ if (! function_exists('pxcg_trans')) {
 }
 
 if (! function_exists('pxcg_menu')) {
-    function pxcg_menu_item($title, $route_name)
+    function pxcg_menu_item($title, $route_name, $route_names_matched = [])
     {
-        $menu_item = '<li class="'.((Route::currentRouteName() == $route_name)? 'active' : '') .'"><a href="'.route($route_name).'">'.$title.'</a></li>';
+        $menu_item_active = false;
+        if ( Route::currentRouteName() == $route_name
+        || in_array(Route::currentRouteName(), $route_names_matched))
+        {
+            $menu_item_active = true;
+        }
+        $menu_item = '<li class="'.(($menu_item_active)? 'active' : '') .'"><a href="'.route($route_name).'">'.$title.'</a></li>';
         return $menu_item;
     }
 }
