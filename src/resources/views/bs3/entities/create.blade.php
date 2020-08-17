@@ -13,7 +13,7 @@
     @endif
     {!! Form::Open(array('url' => route('crudgenerator.bs3.entities.store'),'method' => 'post', 'files' => true)) !!}
 
-        @include('crudgenerator::entities.form')
+        @include('crudgenerator::bs3/entities.form')
 
     {!! Form::close() !!}
 

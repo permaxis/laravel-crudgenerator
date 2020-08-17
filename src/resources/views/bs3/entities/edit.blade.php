@@ -14,7 +14,7 @@
         </div>
     @endif
     {!! Form::Open(array('url' => route('crudgenerator.bs3.entities.update',['id' => $entity->id]),'method' => 'put', 'files' => true)) !!}
-        @include('crudgenerator::entities.form')
+        @include('crudgenerator:bs3/:entities.form')
 
     {!! Form::close() !!}
 
