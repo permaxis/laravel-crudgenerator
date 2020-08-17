@@ -227,7 +227,7 @@ class CrudGeneratorCommand extends Command
                 $output = exec($cmd);
 
                 //replace routes names in controller
-                $this->replaceRouteNames($routeNamePrefix,$pluralModel,$controllerFile, $bootstrapVersion='bs3');
+                $this->replaceRouteNames($routeNamePrefix,$pluralModel,$controllerFile, $bootstrapVersion='3');
 
                 //replace views names in controller
                 $this->replaceViewNames($subViewsDir,$pluralModel,$controllerFile, $packageName, $bootstrapVersion);
@@ -326,7 +326,7 @@ class CrudGeneratorCommand extends Command
     }
 
 
-    public function replaceRouteNames($routeNamePrefix= '', $pluralModel, $file, $bootstrapVersion = 'bs3')
+    public function replaceRouteNames($routeNamePrefix= '', $pluralModel, $file, $bootstrapVersion = '3')
     {
         if (!empty($routeNamePrefix))
         {
