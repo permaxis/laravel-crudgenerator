@@ -48,7 +48,7 @@
         </div>
     @endif
 
-    @include('crudgenerator::entities.search')
+    @include('crudgenerator::bs3/entities.search')
 
     <h5><strong>{{ $total }} entities</strong></h5>
     @if (count($entities))
