@@ -33,6 +33,7 @@ class CrudGeneratorCommand extends Command
                            {--pk= : Package name}
                            {--api= : Api enabled}
                            {--bs=3 : Bootstrap version}
+                           {--cmt=1 : Enable comment}
                            ';
 
     /**
@@ -145,6 +146,7 @@ class CrudGeneratorCommand extends Command
         $packageName = $this->option('pk');
         $enabledApi = $this->option('api');
         $bootstrapVersion = $this->option('bs');
+        $enabledComment = $this->option('cmt');
 
         if (!empty($enabledApi) && $enabledApi == 1)
         {
@@ -233,8 +235,11 @@ class CrudGeneratorCommand extends Command
                 $this->replaceViewNames($subViewsDir,$pluralModel,$controllerFile, $packageName, $bootstrapVersion);
 
                 //comment attributes in controller
-                $this->replaceInFile('\/\*bc\*\/','\/\*',$controllerFile);
-                $this->replaceInFile('\/\*ec\*\/','\*\/',$controllerFile);
+                if ($enabledComment)
+                {
+                    $this->replaceInFile('\/\*bc\*\/','\/\*',$controllerFile);
+                    $this->replaceInFile('\/\*ec\*\/','\*\/',$controllerFile);
+                }
 
             }
 
@@ -278,10 +283,13 @@ class CrudGeneratorCommand extends Command
                     $this->replaceRouteNames($routeNamePrefix, $pluralModel, $file, $bootstrapVersion);
 
                     //comment attributes in views
-                    $this->replaceInFile('{{--bc--}}','{{--',$file);
-                    $this->replaceInFile('{{--ec--}}','--}}',$file);
-                    $this->replaceInFile('\/\*bc\*\/','\/\*',$file);
-                    $this->replaceInFile('\/\*ec\*\/','\*\/',$file);
+                    if ($enabledComment)
+                    {
+                        $this->replaceInFile('{{--bc--}}','{{--',$file);
+                        $this->replaceInFile('{{--ec--}}','--}}',$file);
+                        $this->replaceInFile('\/\*bc\*\/','\/\*',$file);
+                        $this->replaceInFile('\/\*ec\*\/','\*\/',$file);
+                    }
 
                     //replace views names in views
                     $this->replaceViewNames($subViewsDir,$pluralModel,$file,$packageName, $bootstrapVersion);
