@@ -28,12 +28,13 @@ return [
     'alert_suppression' => 'Alert suppression',
     'cancel' => 'Cancel',
     'confirm' => 'Confirm',
-    'confirm_delete_item' => 'Comfirmer la suppression',
+    'confirm_delete_item' => 'Comfirmer suppression',
     'edit_entity' => 'Edit an entity',
     'select' => 'Select',
     'entity_not_created' => 'Entity not created !',
     'entity_created_with_success' => 'Entity created with success !',
     'entity_updated_with_success' => 'Entity updated with success !',
+    'entity_updated_not_updated' => 'Entity not updated !',
     'confirm_delete_selected_entities' => 'Confirm delete selected entities'
 
 ];

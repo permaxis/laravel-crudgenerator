@@ -10,7 +10,7 @@
     @endif
     @if (session('updateAction') && session('updateAction') == 'failed')
         <div class="alert alert-danger">
-            {{ pxcg_trans('permaxis_crudgenerator::messages.entity_updated_not updated') }}
+            {{ pxcg_trans('permaxis_crudgenerator::messages.entity_updated_not_updated') }}
         </div>
     @endif
     {!! Form::Open(array('url' => route('crudgenerator.entities.update',['id' => $entity->id]),'method' => 'put', 'files' => true)) !!}

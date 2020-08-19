@@ -167,16 +167,16 @@ $( document ).ready(function() {
                 $inlineUpdateField.data('fieldstate','write');
             }
 
-            $table = $('<div class="row"/>');
+            $table = $('<div class="row justify-content-md-center"/>');
             $table.append('' +
                     '<div class="col-sm-offset-3 col-sm-2 confirm-update-field" style="border:none">' +
-                    '<button type="submit" name="valider" value="valider"><i class="glyphicon glyphicon-floppy-save"></i></button>' +
+                    '<button type="submit" name="valider" value="valider"><i class="far fa-save"></i></i></button>' +
                     '</div>' +
                     '<div class="col-sm-2 cancel-update-field" style="border:none">' +
-                    '<button type="button" name="cancel" value="annuler"><i class="glyphicon glyphicon-log-out"></i></button>' +
+                    '<button type="button" name="cancel" value="annuler"><i class="fas fa-sign-out-alt"></i></button>' +
                     '</div>' +
                     '<div class="col-sm-2 setnull-update-field" style="border:none">' +
-                    '<button type="submit" name="valider" value="valider"><i class="glyphicon glyphicon-remove-sign"></button>' +
+                    '<button type="submit" name="valider" value="valider"><i class="far fa-window-close"></i></button>' +
                     '</div>' +
                     '')
 
@@ -297,11 +297,12 @@ $( document ).ready(function() {
 
                         form_group = $inlineUpdateField
                             .find('div[class*="form-group"]');
-                        form_group.find('span[class="help-block"]').remove();
+                        form_group.find('input, select, textarea').addClass('is-invalid');
+                        form_group.find('span[class*="help-block"]').remove();
                         form_group.addClass('has-error')
                             .append(
-                        '<span class="help-block">\n' +
-                            '            <small><strong>'+message+'</strong></small>' +
+                        '<span class="help-block invalid-feedback">\n' +
+                            '            <strong>'+message+'</strong>' +
                             '        </span>')
                     }
                 },

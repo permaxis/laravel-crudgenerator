@@ -3,8 +3,23 @@ use Illuminate\Support\Facades\Route;
 
 if (! function_exists('pxcg_sort_item')) {
     function pxcg_sort_item($sortBy, $sortDir, $key ) {
-        $icon = (isset($sortBy) && $sortBy == $key && isset($sortDir) && $sortDir== 'desc')? 'glyphicon-chevron-down' : 'glyphicon-chevron-up' ;
-        return " <i class=\"glyphicon {$icon} \"></i>";
+
+        if (isset($sortBy) && $sortBy == $key && isset($sortDir) && $sortDir== 'asc')
+        {
+            $icon = 'fa-sort-amount-down-alt';
+        }
+        elseif (isset($sortBy) && $sortBy == $key && isset($sortDir) && $sortDir== 'desc')
+        {
+            $icon = 'fa-sort-amount-up' ;
+        }
+        if (!empty($icon))
+        {
+            return " <i class=\"fas {$icon} \"></i>";
+        }
+        else
+        {
+            return '';
+        }
     }
 }
 if (! function_exists('pxcg_inline_update_field')) {
@@ -43,7 +58,7 @@ if (! function_exists('pxcg_trans')) {
 }
 
 if (! function_exists('pxcg_menu')) {
-    function pxcg_menu_item($title, $route_name, $route_names_matched = [])
+    function pxcg_menu_item($title, $route_name, $route_names_matched = [], $bs = 3)
     {
         $menu_item_active = false;
         if ( Route::currentRouteName() == $route_name
@@ -51,7 +66,14 @@ if (! function_exists('pxcg_menu')) {
         {
             $menu_item_active = true;
         }
-        $menu_item = '<li class="'.(($menu_item_active)? 'active' : '') .'"><a href="'.route($route_name).'">'.$title.'</a></li>';
+        if ($bs == 3)
+        {
+            $menu_item = '<li class="'.(($menu_item_active)? 'active' : '') .'"><a href="'.route($route_name).'">'.$title.'</a></li>';
+        }
+        elseif ($bs == 4)
+        {
+            $menu_item = '<a class="nav-link'.(($menu_item_active)? ' active' : '') .'" href="'.route($route_name).'">'.$title.'</a>';
+        }
         return $menu_item;
     }
 }

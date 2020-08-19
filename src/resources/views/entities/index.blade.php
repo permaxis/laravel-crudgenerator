@@ -53,7 +53,7 @@
     <h5><strong>{{ $total }} entities</strong></h5>
     @if (count($entities))
         <div class="table-responsive" id="list-items">
-            <table class="table-striped table-bordered table-hover table-condensed">
+            <table class="table table-striped table-bordered table-hover table-condensed">
                 <thead>
                 <tr>
                     <th><a href="{{ route('crudgenerator.entities.index', $sorting['id'] ) }}" class="sort-item">Id</a>{!! pxcg_sort_item($sortBy, $sortDir, 'id') !!}</th>
@@ -78,36 +78,11 @@
                         <td>
                             <ul class="list list-inline">
                                 @if (!isset($layout) || (isset($layout) && $layout=='index'))
-                                    <li><a href="{{ route('crudgenerator.entities.show' , ['id' => $item->id]) }}">{{ pxcg_trans('permaxis_crudgenerator::messages.show') }}</a></li>
-                                    <li><a href="{{ route('crudgenerator.entities.edit' , ['id' => $item->id]) }}">{{ pxcg_trans('permaxis_crudgenerator::messages.edit') }}</a></li>
-                                    <li>
-                                        <a href="#" data-toggle="modal" data-target="#myModal-{{ $item->id }}">{{ pxcg_trans('permaxis_crudgenerator::messages.delete') }}</a>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="myModal-{{ $item->id }}" role="dialog">
-                                            <div class="modal-dialog">
-
-                                                <!-- Modal content-->
-                                                <div class="modal-content">
-                                                    {!! Form::Open(array('url' => route('crudgenerator.entities.destroy',['id' => $item->id]),'method' => 'DELETE')) !!}
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title">{{ pxcg_trans('permaxis_crudgenerator::messages.alert_suppression') }}</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <h1>{{ pxcg_trans('permaxis_crudgenerator::messages.confirm_delete_item') }} {{--{{ $item->name }} --}}</h1>
-                                                        <div class="form-group">
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">{{ pxcg_trans('permaxis_crudgenerator::messages.cancel') }}</button>
-                                                        {!! Form::submit(pxcg_trans('permaxis_crudgenerator::messages.confirm'),['class' => 'btn btn-primary']) !!}
-                                                    </div>
-                                                    {!! Form::close() !!}
-                                                </div>
-
-                                            </div>
-                                        </div>
-
+                                    <li class="list-inline-item"><a href="{{ route('crudgenerator.entities.show' , ['id' => $item->id]) }}">{{ pxcg_trans('permaxis_crudgenerator::messages.show') }}</a></li>
+                                    <li class="list-inline-item"><a href="{{ route('crudgenerator.entities.edit' , ['id' => $item->id]) }}">{{ pxcg_trans('permaxis_crudgenerator::messages.edit') }}</a></li>
+                                    <li class="list-inline-item">
+                                        <a href="#" data-toggle="modal" data-target="#myModal-{{ $item->id  }}">{{ pxcg_trans('permaxis_crudgenerator::messages.delete') }}</a>
+                                        @include('crudgenerator::include._modal', array('modal_id' => 'myModal-'. $item->id, 'item_id' => $item->id, 'submit_id' => 'submit-'.$item->id))
                                     </li>
                                 @endif
                              </ul>
@@ -130,42 +105,21 @@
     @endif
     <ul class="list list-inline">
         @if (Route::currentRouteName() == 'crudgenerator.entities.index' || Route::currentRouteName() == 'crudgenerator::crudgenerator.entities.search' )
-            <li>
+            <li class="list-inline-item">
                 <div class="form-group">
                     <a href="{{ route('crudgenerator.entities.create') }}" class="btn btn-primary" >{{ pxcg_trans('permaxis_crudgenerator::messages.create_entity') }}</a>
                 </div>
             </li>
             @if (count($entities))
-                <li>
+                <li class="list-inline-item">
                     <div class="form-group">
-                        <a href="#" data-toggle="modal"  data-target="#modal-delete-selected-items" class="btn btn-primary" >{{ pxcg_trans('permaxis_crudgenerator::messages.delete_entity') }}</a>
+                        <a href="#" data-toggle="modal"  data-target="#modal-delete-selected-items" class="btn btn-default btn-secondary" >{{ pxcg_trans('permaxis_crudgenerator::messages.delete_entity') }}</a>
                     </div>
                 </li>
             @endif
         @endif
     </ul>
 
-    <div class="modal fade" id="modal-delete-selected-items" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">{{ pxcg_trans('permaxis_crudgenerator::messages.alert_suppression') }}</h4>
-                </div>
-                <div class="modal-body">
-                    <h1>{{ pxcg_trans('permaxis_crudgenerator::messages.confirm_delete_selected_entities') }}</h1>
-                    <div class="form-group">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ pxcg_trans('permaxis_crudgenerator::messages.cancel') }}</button>
-                    {!! Form::submit(pxcg_trans('permaxis_crudgenerator::messages.confirm'),['id'=>'delete-selected-items', 'class' => 'btn btn-primary']) !!}
-                </div>
-            </div>
-
-        </div>
-    </div>
+    @include('crudgenerator::include._modal', array('modal_id' => 'modal-delete-selected-items', 'submit_id' => 'delete-selected-items'))
 
 @endsection

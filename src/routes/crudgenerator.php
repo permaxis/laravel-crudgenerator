@@ -7,7 +7,7 @@
     Route::delete('entities','\Permaxis\CrudGenerator\App\Http\Controllers\EntitiesController@destroyEntities',['method' => 'DELETE'])->name('entities.destroy_entities');
 });*/
 
-Route::name('entities.')->middleware('web')->group(function () {
+/*Route::name('entities.')->middleware('web')->group(function () {
     Route::get('entities', '\Permaxis\CrudGenerator\App\Http\Controllers\EntitiesController@index')->name('index');
     Route::get('entities/{id}/show','\Permaxis\CrudGenerator\App\Http\Controllers\EntitiesController@show')->name('show');
     Route::get('entities/create','\Permaxis\CrudGenerator\App\Http\Controllers\EntitiesController@create')->name('create');
@@ -17,9 +17,9 @@ Route::name('entities.')->middleware('web')->group(function () {
     Route::get('entities/{id}/delete','\Permaxis\CrudGenerator\App\Http\Controllers\EntitiesController@delete')->name('delete')->where('entityid', '[0-9]+');
     Route::delete('entities/{id}','\Permaxis\CrudGenerator\App\Http\Controllers\EntitiesController@destroy')->name('destroy')->where('entityid', '[0-9]+');
     Route::delete('entities','\Permaxis\CrudGenerator\App\Http\Controllers\EntitiesController@destroyEntities',['method' => 'DELETE'])->name('destroy_entities');
-});
+});*/
 
-Route::name('bs3.entities.')->middleware('web')->group(function () {
+Route::name('entities.')->prefix('bs4')->middleware('web')->group(function () {
     Route::get('entities', '\Permaxis\CrudGenerator\App\Http\Controllers\EntityModelsController@index')->name('index');
     Route::get('entities/{id}/show','\Permaxis\CrudGenerator\App\Http\Controllers\EntityModelsController@show')->name('show');
     Route::get('entities/create','\Permaxis\CrudGenerator\App\Http\Controllers\EntityModelsController@create')->name('create');

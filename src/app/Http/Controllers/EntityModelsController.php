@@ -65,7 +65,7 @@ class EntityModelsController extends Controller
             'current_page' => $pagination->currentPage()
         ], $this->routeNamePrefix().'.index');
 
-        return View::make('crudgenerator::bs3/entities.index', compact(
+        return View::make($this->viewsDir().'entities.index', compact(
             'entities',
             'total',
             'sortBy',
@@ -83,7 +83,7 @@ class EntityModelsController extends Controller
      */
     public function create()
     {
-        return view('crudgenerator::bs3/entities.create');
+        return view($this->viewsDir().'entities.create');
     }
 
     /**
@@ -115,7 +115,7 @@ class EntityModelsController extends Controller
         else
         {
             Session::flash('createAction','failed');
-            return view('crudgenerator::bs3/entities.create',compact('entity'));
+            return view($this->viewsDir().'entities.create',compact('entity'));
         }
 
     }
@@ -130,7 +130,7 @@ class EntityModelsController extends Controller
     {
         $entity = Entity::query()->find($id);
 
-        return view('crudgenerator::bs3/entities.show',compact('entity'));
+        return view($this->viewsDir().'entities.show',compact('entity'));
     }
 
     /**
@@ -142,7 +142,7 @@ class EntityModelsController extends Controller
     public function edit($id)
     {
         $entity = Entity::query()->find($id);
-        return view('crudgenerator::bs3/entities.edit', compact('entity'));
+        return view($this->viewsDir().'entities.edit', compact('entity'));
     }
 
     /**
@@ -187,7 +187,7 @@ class EntityModelsController extends Controller
             }
 
             Session::flash('updateAction','failed');
-            return view('crudgenerator::bs3/entities.edit',compact('entity'));
+            return view($this->viewsDir().'entities.edit',compact('entity'));
         }
 
         //return $entity;
@@ -205,7 +205,7 @@ class EntityModelsController extends Controller
     {
         $entity = Entity::query()->find($id);
 
-        return view('crudgenerator::bs3/entities.delete',compact('entity'));
+        return view($this->viewsDir().'entities.delete',compact('entity'));
     }
 
     /**
@@ -379,7 +379,12 @@ class EntityModelsController extends Controller
 
     public function routeNamePrefix()
     {
-        return 'crudgenerator.bs3.entities';
+        return 'crudgenerator.entities';
+    }
+
+    public function viewsDir()
+    {
+        return 'crudgenerator::';
     }
 
 }

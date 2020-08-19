@@ -16,5 +16,6 @@ class EntityModel extends Model
 
     protected static $rules = array(
         'name' => 'required',
+        'enabled' => 'required'
     );
 }
