@@ -82,7 +82,7 @@
                                     <li class="list-inline-item"><a href="{{ route('crudgenerator.entities.edit' , ['id' => $item->id]) }}">{{ pxcg_trans('permaxis_crudgenerator::messages.edit') }}</a></li>
                                     <li class="list-inline-item">
                                         <a href="#" data-toggle="modal" data-target="#myModal-{{ $item->id  }}">{{ pxcg_trans('permaxis_crudgenerator::messages.delete') }}</a>
-                                        @include('crudgenerator::include._modal', array('modal_id' => 'myModal-'. $item->id, 'item_id' => $item->id, 'submit_id' => 'submit-'.$item->id))
+                                        @include('crudgenerator::entities._modal', array('modal_id' => 'myModal-'. $item->id, 'item_id' => $item->id, 'submit_id' => 'submit-'.$item->id))
                                     </li>
                                 @endif
                              </ul>
@@ -120,6 +120,6 @@
         @endif
     </ul>
 
-    @include('crudgenerator::include._modal', array('modal_id' => 'modal-delete-selected-items', 'submit_id' => 'delete-selected-items'))
+    @include('crudgenerator::entities._modal', array('modal_id' => 'modal-delete-selected-items', 'submit_id' => 'delete-selected-items'))
 
 @endsection
