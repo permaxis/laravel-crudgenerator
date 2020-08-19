@@ -343,6 +343,10 @@ class CrudGeneratorCommand extends Command
             $route_name = 'crudgenerator.'.$pluralModel.'.';
         }
 
+        $cmd = "sed -i 's/crudgenerator.entities./".$route_name."/g' ".$file;
+
+        $output = exec($cmd);
+
         $cmd = "sed -i 's/destroy_entities/".'destroy_'.$pluralModel."/g' ".$file;
 
         $output = exec($cmd);
@@ -363,6 +367,16 @@ class CrudGeneratorCommand extends Command
         {
             $view_name = $packageName.'::'.$view_name;
         }
+
+        //replace view model names
+        $cmd = "sed -i 's/crudgenerator::entities./".$view_name."/g' ".$file;
+        $output = exec($cmd);
+
+        //replace  view layouts name
+        $layout_name = $dir.'layouts.';
+        $cmd = "sed -i 's/crudgenerator::layouts./".$layout_name."/g' ".$file;
+        $output = exec($cmd);
+
     }
 
     public function replaceInFile($str_source, $str_target, $file)

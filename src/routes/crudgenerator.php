@@ -19,7 +19,7 @@
     Route::delete('entities','\Permaxis\CrudGenerator\App\Http\Controllers\EntitiesController@destroyEntities',['method' => 'DELETE'])->name('destroy_entities');
 });*/
 
-Route::name('entities.')->prefix('bs4')->middleware('web')->group(function () {
+Route::name('entities.')->middleware('web')->group(function () {
     Route::get('entities', '\Permaxis\CrudGenerator\App\Http\Controllers\EntityModelsController@index')->name('index');
     Route::get('entities/{id}/show','\Permaxis\CrudGenerator\App\Http\Controllers\EntityModelsController@show')->name('show');
     Route::get('entities/create','\Permaxis\CrudGenerator\App\Http\Controllers\EntityModelsController@create')->name('create');
