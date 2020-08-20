@@ -218,12 +218,12 @@ class CrudGeneratorCommand extends Command
                 $output = exec($cmd);
 
                 //replace controller class name
-                $cmd = "sed -i 's/Permaxis\\\\CrudGenerator\\\\App\\\\Http\\\\Controllers/".str_replace('\\','\\\\',$controllerNamespace)."/g' ".$controllerFile;
+                $cmd = "sed -i 's/Permaxis\\\\Laravel\\\\CrudGenerator\\\\App\\\\Http\\\\Controllers/".str_replace('\\','\\\\',$controllerNamespace)."/g' ".$controllerFile;
                 //echo $cmd;
                 $output = exec($cmd);
 
                 //replace Model Class Permaxis\Laravel\CrudGenerator\app\Entities\ApiEntity by modelClass
-                $cmd = "sed -i 's/use\sPermaxis\\\\CrudGenerator\\\\App\\\\Entities\\\\{$modelSourceClass}/use ".str_replace('\\','\\\\',$modelClass)."/g' ".$controllerFile;
+                $cmd = "sed -i 's/use\sPermaxis\\\\Laravel\\\\CrudGenerator\\\\App\\\\Entities\\\\{$modelSourceClass}/use ".str_replace('\\','\\\\',$modelClass)."/g' ".$controllerFile;
                 $output = exec($cmd);
 
                 //replace routes names in controller
