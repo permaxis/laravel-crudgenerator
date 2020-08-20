@@ -1,3 +1,9 @@
+@if (isset($entity) && $entity->id)
+<div class="form-group">
+    {!! Form::label('id','Id:') !!}
+    {!! Form::text('id',(isset($entity) ? $entity->id: null),array('disabled' => 'disabled', 'class' =>  'form-control disabled')) !!}
+</div>
+@endif
 {{--bc--}}<div class="form-group{{ isset($entity) && $entity->errors()->has('name') ? ' has-error' : '' }}">
     {!! Form::label('name','Name:') !!}
     {!! Form::text('name',(isset($entity) ? $entity->name: null),array('class' => (isset($entity) && $entity->errors()->has('name'))? 'form-control is-invalid' : 'form-control')) !!}

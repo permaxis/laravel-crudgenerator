@@ -2,8 +2,8 @@
     <div class="modal-dialog" role="document">
         <!-- Modal content-->
         <div class="modal-content">
-            @if (isset($item_id))
-            {!! Form::Open(array('url' => route('crudgenerator.entities.destroy',['id' => $item->id]),'method' => 'DELETE')) !!}
+            @if ($route))
+            {!! Form::Open(array('url' => $route,'method' => 'DELETE')) !!}
             @endif
             <div class="modal-header">
                 <h4 class="modal-title">{{ pxcg_trans('permaxis_crudgenerator::messages.alert_suppression') }}</h4>
