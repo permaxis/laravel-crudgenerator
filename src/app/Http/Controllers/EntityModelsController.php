@@ -1,6 +1,6 @@
 <?php
 
-namespace Permaxis\CrudGenerator\App\Http\Controllers;
+namespace Permaxis\Laravel\CrudGenerator\App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\App;
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Permaxis\Core\App\Services\Paginator\Paginator;
-use Permaxis\CrudGenerator\App\Entities\EntityModel as Entity;
+use Permaxis\Laravel\CrudGenerator\App\Entities\EntityModel as Entity;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class EntityModelsController extends Controller

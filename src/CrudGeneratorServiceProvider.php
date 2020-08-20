@@ -1,9 +1,9 @@
 <?php
 
-namespace Permaxis\CrudGenerator;
+namespace Permaxis\Laravel\CrudGenerator;
 
 use Illuminate\Support\ServiceProvider;
-use Permaxis\CrudGenerator\App\Console\CrudGeneratorCommand;
+use Permaxis\Laravel\CrudGenerator\App\Console\CrudGeneratorCommand;
 
 class CrudGeneratorServiceProvider extends ServiceProvider
 {
@@ -29,17 +29,17 @@ class CrudGeneratorServiceProvider extends ServiceProvider
 
         //publish assets
         $this->publishes([
-            __DIR__.'/public/assets' => public_path('vendor/permaxis/crudgenerator/assets'),
+            __DIR__.'/public/assets' => public_path('vendor/permaxis/laravel-crudgenerator/assets'),
         ], 'permaxis_crudgenerator_assets');
 
         //publish layouts
         $this->publishes([
-            __DIR__.'/resources/views/layouts' =>  base_path('resources/views/vendor/permaxis/crudgenerator/layouts'),
+            __DIR__.'/resources/views/layouts' =>  base_path('resources/views/vendor/permaxis/laravel-crudgenerator/layouts'),
         ], 'permaxis_crudgenerator_layouts');
 
         //publish include
         $this->publishes([
-            __DIR__.'/resources/views/include' =>  base_path('resources/views/vendor/permaxis/crudgenerator/include'),
+            __DIR__.'/resources/views/include' =>  base_path('resources/views/vendor/permaxis/laravel-crudgenerator/include'),
         ], 'permaxis_crudgenerator_include');
 
         //publish translations

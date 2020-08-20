@@ -6,7 +6,7 @@
  * Time: 15:35
  */
 
-namespace Permaxis\CrudGenerator\App\Services;
+namespace Permaxis\Laravel\CrudGenerator\App\Services;
 
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +28,7 @@ class CrudGenerator
 
         $defaultOptions = [
             'prefix' => 'logger',
-            'namespace' => '\Permaxis\CrudGenerator\App\Http\Controllers',
+            'namespace' => '\Permaxis\Laravel\CrudGenerator\App\Http\Controllers',
         ];
 
         $options = array_merge($defaultOptions, $options);

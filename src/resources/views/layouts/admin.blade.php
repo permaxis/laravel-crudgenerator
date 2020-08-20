@@ -20,7 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 
-    <script src="{{ asset('vendor/permaxis/crudgenerator/assets/js/crudgenerator.js') }}"></script>
+    <script src="{{ asset('vendor/permaxis/laravel-crudgenerator/assets/js/crudgenerator.js') }}"></script>
     @yield('javascripts')
     @yield('stylesheets')
 </head>
@@ -29,7 +29,7 @@
     <div class="row">
         <div class="col-sm-2">
             <!-- It can be fixed with bootstrap affix http://getbootstrap.com/javascript/#affix-->
-           @include('vendor/permaxis/crudgenerator/layouts._menu')
+           @include('vendor/permaxis/laravel-crudgenerator/layouts._menu')
         </div>
         <div class="col-sm-10">
             @yield('content')

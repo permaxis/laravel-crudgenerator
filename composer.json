@@ -1,5 +1,5 @@
 {
-    "name": "permaxis/crudgenerator",
+    "name": "permaxis/laravel-crudgenerator",
     "description": "Generate a front presentation crud",
     "type": "project",
     "authors": [
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Permaxis\\CrudGenerator\\": "src/"
+            "Permaxis\\Laravel\\CrudGenerator\\": "src/"
         }
     }
 }

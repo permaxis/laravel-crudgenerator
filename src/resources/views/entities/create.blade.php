@@ -1,4 +1,4 @@
-@extends('vendor/permaxis/crudgenerator/layouts.admin')
+@extends('vendor/permaxis/laravel-crudgenerator/layouts.admin')
 @section('content')
     <h1>{{ pxcg_trans('permaxis_crudgenerator::messages.create_entity') }}</h1>
     @if (session('createAction') && session('createAction') == 'failed')

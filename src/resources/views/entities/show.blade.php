@@ -1,4 +1,4 @@
-@extends('vendor/permaxis/crudgenerator/layouts.admin')
+@extends('vendor/permaxis/laravel-crudgenerator/layouts.admin')
 @section('content')
     <h1>{{ pxcg_trans('permaxis_crudgenerator::messages.show_entity') }}</h1>
 
@@ -18,7 +18,7 @@
     </ul>
 
     @if (isset($entity) && $entity->id)
-        @include('vendor/permaxis/crudgenerator/include._modal', array('route' => route('crudgenerator.entities.destroy',['id' => $entity->id]), 'modal_id' => 'myModal-'. $entity->id, 'submit_id' => 'submit-'.$entity->id))
+        @include('vendor/permaxis/laravel-crudgenerator/include._modal', array('route' => route('crudgenerator.entities.destroy',['id' => $entity->id]), 'modal_id' => 'myModal-'. $entity->id, 'submit_id' => 'submit-'.$entity->id))
     @endif
 
 @endsection
