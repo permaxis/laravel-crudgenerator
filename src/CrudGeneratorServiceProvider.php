@@ -37,6 +37,11 @@ class CrudGeneratorServiceProvider extends ServiceProvider
             __DIR__.'/resources/views/layouts' =>  base_path('resources/views/vendor/permaxis/crudgenerator/layouts'),
         ], 'permaxis_crudgenerator_layouts');
 
+        //publish include
+        $this->publishes([
+            __DIR__.'/resources/views/include' =>  base_path('resources/views/vendor/permaxis/crudgenerator/include'),
+        ], 'permaxis_crudgenerator_include');
+
         //publish translations
         $this->publishes([
             __DIR__.'/resources/lang/en' =>  base_path('resources/lang/vendor/permaxis_crudgenerator/en'),
