@@ -96,12 +96,10 @@
             </table>
             <br/>
         </div>
-        <div class="row">
-            <div class="center-block">
-                @if ($paginator->getNumPages())
-                    @include('vendor/permaxis/crudgenerator/include._pagination', array('paginator' => $paginator))
-                @endif
-            </div>
+        <div align="center">
+            @if ($paginator->getNumPages())
+                @include('vendor/permaxis/crudgenerator/include._pagination', array('paginator' => $paginator))
+            @endif
         </div>
     @endif
 
