@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <!-- Modal content-->
         <div class="modal-content">
-            @if ($route))
+            @if (isset($route))
             {!! Form::Open(array('url' => $route,'method' => 'DELETE')) !!}
             @endif
             <div class="modal-header">
@@ -20,7 +20,7 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ pxcg_trans('permaxis_crudgenerator::messages.cancel') }}</button>
                 {!! Form::submit(pxcg_trans('permaxis_crudgenerator::messages.confirm'),['id' => $submit_id,'class' => 'btn btn-primary']) !!}
             </div>
-            @if (isset($item_id))
+            @if (isset($route))
             {!! Form::close() !!}
             @endif
         </div>
