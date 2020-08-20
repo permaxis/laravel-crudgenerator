@@ -63,9 +63,9 @@ class EntityModelsController extends Controller
             'total' => $total,
             'per_page' => $pagination->perPage(),
             'current_page' => $pagination->currentPage()
-        ], $this->routeNamePrefix().'.index');
+        ], $this->routeNamePrefix().'index');
 
-        return View::make($this->viewsDir().'entities.index', compact(
+        return View::make($this->viewsDir().'index', compact(
             'entities',
             'total',
             'sortBy',
@@ -83,7 +83,7 @@ class EntityModelsController extends Controller
      */
     public function create()
     {
-        return view($this->viewsDir().'entities.create');
+        return view($this->viewsDir().'create');
     }
 
     /**
@@ -108,14 +108,14 @@ class EntityModelsController extends Controller
 
             if (isset($params['createAndAddAnother']))
             {
-                return redirect(route($this->routeNamePrefix().'.create'));
+                return redirect(route($this->routeNamePrefix().'create'));
             }
-            return redirect(route($this->routeNamePrefix().'.index'));
+            return redirect(route($this->routeNamePrefix().'index'));
         }
         else
         {
             Session::flash('createAction','failed');
-            return view($this->viewsDir().'entities.create',compact('entity'));
+            return view($this->viewsDir().'create',compact('entity'));
         }
 
     }
@@ -130,7 +130,7 @@ class EntityModelsController extends Controller
     {
         $entity = Entity::query()->find($id);
 
-        return view($this->viewsDir().'entities.show',compact('entity'));
+        return view($this->viewsDir().'show',compact('entity'));
     }
 
     /**
@@ -142,7 +142,7 @@ class EntityModelsController extends Controller
     public function edit($id)
     {
         $entity = Entity::query()->find($id);
-        return view($this->viewsDir().'entities.edit', compact('entity'));
+        return view($this->viewsDir().'edit', compact('entity'));
     }
 
     /**
@@ -173,7 +173,7 @@ class EntityModelsController extends Controller
             }
 
             Session::flash('updateAction','success');
-            return redirect()->route($this->routeNamePrefix().'.edit',['id' => $entity->id])->with('updateAction','success');
+            return redirect()->route($this->routeNamePrefix().'edit',['id' => $entity->id])->with('updateAction','success');
         }
         else
         {
@@ -187,7 +187,7 @@ class EntityModelsController extends Controller
             }
 
             Session::flash('updateAction','failed');
-            return view($this->viewsDir().'entities.edit',compact('entity'));
+            return view($this->viewsDir().'edit',compact('entity'));
         }
 
         //return $entity;
@@ -205,7 +205,7 @@ class EntityModelsController extends Controller
     {
         $entity = Entity::query()->find($id);
 
-        return view($this->viewsDir().'entities.delete',compact('entity'));
+        return view($this->viewsDir().'delete',compact('entity'));
     }
 
     /**
@@ -222,7 +222,7 @@ class EntityModelsController extends Controller
 
         Session ::flash('deleteAction','success');
 
-        return redirect(route($this->routeNamePrefix().'.index'));
+        return redirect(route($this->routeNamePrefix().'index'));
     }
 
     /**
@@ -379,12 +379,12 @@ class EntityModelsController extends Controller
 
     public function routeNamePrefix()
     {
-        return 'crudgenerator.entities';
+        return 'crudgenerator.entities.';
     }
 
     public function viewsDir()
     {
-        return 'crudgenerator::';
+        return 'crudgenerator::entities.';
     }
 
 }
