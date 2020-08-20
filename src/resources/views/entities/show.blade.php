@@ -12,8 +12,13 @@
 
     <ul class="list list-inline">
         <li class="list-inline-item"><a href="{{ route('crudgenerator.entities.edit', ['id' => $entity->id]) }}" class="btn btn-primary">{{ pxcg_trans('permaxis_crudgenerator::messages.edit') }}</a></li>
-        <li class="list-inline-item"><a href="{{ route('crudgenerator.entities.delete', ['id' => $entity->id]) }}" class="btn btn-default btn-secondary">{{ pxcg_trans('permaxis_crudgenerator::messages.delete') }}</a></li>
+        <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#myModal-{{ $entity->id  }}" class="btn btn-default btn-secondary">{{ pxcg_trans('permaxis_crudgenerator::messages.delete') }}</a></li>
         <li class="list-inline-item"><a href="{{ route('crudgenerator.entities.index') }}" class="btn btn-default  btn-light">{{ pxcg_trans('permaxis_crudgenerator::messages.back_to_list') }}</a></li>
         <li></li>
     </ul>
+
+    @if (isset($entity) && $entity->id)
+        @include('vendor/permaxis/crudgenerator/include._modal', array('route' => route('crudgenerator.entities.destroy',['id' => $entity->id]), 'modal_id' => 'myModal-'. $entity->id, 'submit_id' => 'submit-'.$entity->id))
+    @endif
+
 @endsection

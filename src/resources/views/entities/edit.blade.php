@@ -36,4 +36,7 @@
             </ul>
         </div>
     @endif
+    @if (isset($entity) && $entity->id)
+        @include('vendor/permaxis/crudgenerator/include._modal', array('route' => route('crudgenerator.entities.destroy',['id' => $entity->id]), 'modal_id' => 'myModal-'. $entity->id, 'submit_id' => 'submit-'.$entity->id))
+    @endif
 @endsection

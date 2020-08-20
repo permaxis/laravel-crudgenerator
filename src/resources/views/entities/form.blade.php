@@ -47,25 +47,12 @@
     @endif
     @if (isset($entity) && $entity->id)
     <li class="list-inline-item"><a href="{{ route('crudgenerator.entities.show', ['id' => $entity->id]) }}" class="btn btn-default btn-secondary">Show</a></li>
-    <li class="list-inline-item"><a href="{{ route('crudgenerator.entities.delete', ['id' => $entity->id]) }}" class="btn btn-default btn-secondary">Delete</a></li>
+    <li class="list-inline-item">
+        <a data-toggle="modal" data-target="#myModal-{{ $entity->id  }}" href="#" class="btn btn-default btn-secondary">
+            Delete
+        </a>
+    </li>
     @endif
     <li class="list-inline-item"><a href="{{ route('crudgenerator.entities.index') }}" class="btn btn-default  btn-light">Back to list</a></li>
 </ul>
 
-<div class="modal fade" id="modal-list-items" role="dialog">
-    <div class="modal-dialog modal-lg">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">{{ pxcg_trans('permaxis_crudgenerator::messages.select') }}</h4>
-            </div>
-            <div class="modal-body" id="modal-body-list-items">
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-
-    </div>
-</div>

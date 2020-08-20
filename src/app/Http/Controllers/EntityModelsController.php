@@ -38,7 +38,7 @@ class EntityModelsController extends Controller
         ]);
 
         //process  sorting
-        list($sortBy, $sortDir, $sorting ) = $this->processSorting($request, 'id','asc', [
+        list($sortBy, $sortDir, $sorting ) = $this->processSorting($request, 'id','desc', [
             'id',
    /*bc*/   'name', /*ec*/
             'created_at',
