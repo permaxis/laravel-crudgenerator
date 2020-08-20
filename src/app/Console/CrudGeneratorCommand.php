@@ -203,7 +203,7 @@ class CrudGeneratorCommand extends Command
                 $this->fileSystem->makeDirectory($pathControllerDir);
             }
 
-            if (!file_exists($controllerFile))
+            if (!file_exists($controllerFile) || $overrideController)
             {
 
                 $this->fileSystem->copy(__DIR__. '/../Http/Controllers/'.$controllerSourceClass.'.php', $controllerFile);
