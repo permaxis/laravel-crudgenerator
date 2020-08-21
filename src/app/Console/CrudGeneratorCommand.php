@@ -347,9 +347,9 @@ class CrudGeneratorCommand extends Command
 
         $output = exec($cmd);
 
-        $cmd = "sed -i 's/destroy_entities/".'destroy_'.$pluralModel."/g' ".$file;
+        //$cmd = "sed -i 's/destroy_entities/".'destroy_'.$pluralModel."/g' ".$file;
 
-        $output = exec($cmd);
+        //$output = exec($cmd);
 
     }
 
