@@ -27,8 +27,6 @@ class CrudGenerator
         };
 
         $defaultOptions = [
-            'prefix' => 'logger',
-            'namespace' => '\Permaxis\Laravel\CrudGenerator\App\Http\Controllers',
         ];
 
         $options = array_merge($defaultOptions, $options);
