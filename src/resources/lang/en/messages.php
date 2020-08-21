@@ -28,7 +28,7 @@ return [
     'alert_suppression' => 'Alert suppression',
     'cancel' => 'Cancel',
     'confirm' => 'Confirm',
-    'confirm_delete_item' => 'Comfirmer suppression',
+    'confirm_delete_item' => 'Confirm suppression',
     'edit_entity' => 'Edit an entity',
     'select' => 'Select',
     'entity_not_created' => 'Entity not created !',
