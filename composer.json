@@ -2,6 +2,7 @@
     "name": "permaxis/laravel-crudgenerator",
     "description": "Generate a front presentation crud",
     "type": "project",
+    "license": "MIT",
     "authors": [
         {
             "name": "permaxis",
