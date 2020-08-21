@@ -35,21 +35,23 @@ class RouteRegistrar
      *
      * @return void
      */
-    public function bo()
+    public function routes($options = array())
     {
-        //entities
-        Route::name('crudgenerator.entities.')->group(function () {
-            Route::get('entities', '\Permaxis\Laravel\CrudGenerator\App\Http\Controllers\EntitiesController@index')->name('index');
-            Route::get('entities/{id}/show', '\Permaxis\Laravel\CrudGenerator\App\Http\Controllers\EntitiesController@show')->name('show');
-            Route::get('entities/create', '\Permaxis\Laravel\CrudGenerator\App\Http\Controllers\EntitiesController@create')->name('create');
-            Route::post('entities', '\Permaxis\Laravel\CrudGenerator\App\Http\Controllers\EntitiesController@store')->name('store');
-            Route::get('entities/{id}/edit', '\Permaxis\Laravel\CrudGenerator\App\Http\Controllers\EntitiesController@edit')->name('edit');
-            Route::put('entities/{id}', '\Permaxis\Laravel\CrudGenerator\App\Http\Controllers\EntitiesController@update')->name('update');
-            Route::get('entities/{id}/delete', '\Permaxis\Laravel\CrudGenerator\App\Http\Controllers\EntitiesController@delete')->name('delete')->where('entityid', '[0-9]+');
-            Route::delete('entities/{id}', '\Permaxis\Laravel\CrudGenerator\App\Http\Controllers\EntitiesController@destroy')->name('destroy')->where('entityid', '[0-9]+');
-            Route::delete('entities', '\Permaxis\Laravel\CrudGenerator\App\Http\Controllers\EntitiesController@destroyEntities', ['method' => 'DELETE'])->name('destroy_entities');
-        });
-
+        foreach ($options as $option)
+        {
+            $resource = $option['resource'];
+            $controller = $option['controller'];
+            $route_name_prefix = (isset($option['route_name_prefix']))? $option['route_name_prefix'].'.' : '';
+            Route::get($resource, $controller.'@index')->name($route_name_prefix.'index');
+            Route::get($resource.'/{id}/show',$controller.'@show')->name($route_name_prefix.'show');
+            Route::get($resource.'/create',$controller.'@create')->name($route_name_prefix.'create');
+            Route::post($resource,$controller.'@store')->name($route_name_prefix.'store');
+            Route::get($resource.'/{id}/edit',$controller.'@edit')->name($route_name_prefix.'edit');
+            Route::put($resource.'/{id}',$controller.'@update')->name($route_name_prefix.'update');
+            Route::get($resource.'/{id}/delete',$controller.'@delete')->name($route_name_prefix.'delete')->where('entityid', '[0-9]+');
+            Route::delete($resource.'/{id}',$controller.'@destroy')->name($route_name_prefix.'destroy')->where('entityid', '[0-9]+');
+            Route::delete($resource,$controller.'@destroyEntities',['method' => 'DELETE'])->name($route_name_prefix.'destroy_entities');
+        }
     }
 
 }
