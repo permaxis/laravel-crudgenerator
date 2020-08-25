@@ -65,7 +65,6 @@
                     <th>
                         {!! Form::checkbox('selectAllItems',1,null,['id' => 'selectAllItems']) !!}
                     </th>
-                    
                 </tr>
                 </thead>
                 <tbody>
