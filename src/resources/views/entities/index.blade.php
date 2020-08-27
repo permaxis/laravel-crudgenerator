@@ -1,4 +1,5 @@
 @extends('vendor/permaxis/laravel-crudgenerator/layouts.admin')
+
 @section('javascripts')
     @parent
     <script>
