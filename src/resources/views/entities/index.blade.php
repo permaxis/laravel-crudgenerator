@@ -1,4 +1,5 @@
 @extends('vendor/permaxis/laravel-crudgenerator/layouts.admin')
+
 @section('javascripts')
     @parent
     <script>
@@ -78,10 +79,10 @@
                         <td>
                             <ul class="list list-inline">
                                 @if (!isset($layout) || (isset($layout) && $layout=='index'))
-                                    <li class="list-inline-item"><a href="{{ route('crudgenerator.entities.show' , ['id' => $item->id]) }}">{{ pxcg_trans('permaxis_crudgenerator::messages.show') }}</a></li>
-                                    <li class="list-inline-item"><a href="{{ route('crudgenerator.entities.edit' , ['id' => $item->id]) }}">{{ pxcg_trans('permaxis_crudgenerator::messages.edit') }}</a></li>
+                                    <li class="list-inline-item"><a href="{{ route('crudgenerator.entities.show' , ['id' => $item->id]) }}"><i class="fa fa-eye"></i></a></li>
+                                    <li class="list-inline-item"><a href="{{ route('crudgenerator.entities.edit' , ['id' => $item->id]) }}"><i class="fa fa-edit"></i></a></li>
                                     <li class="list-inline-item">
-                                        <a href="#" data-toggle="modal" data-target="#myModal-{{ $item->id  }}">{{ pxcg_trans('permaxis_crudgenerator::messages.delete') }}</a>
+                                        <a href="#" data-toggle="modal" data-target="#myModal-{{ $item->id  }}"><i class="far fa-trash-alt"></i></a>
                                         @include('vendor/permaxis/laravel-crudgenerator/include._modal', array('route' => route('crudgenerator.entities.destroy',['id' => $item->id]), 'modal_id' => 'myModal-'. $item->id, 'submit_id' => 'submit-'.$item->id))
                                     </li>
                                 @endif
