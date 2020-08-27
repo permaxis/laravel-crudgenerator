@@ -29,7 +29,7 @@ class CrudGeneratorServiceProvider extends ServiceProvider
 
         //publish assets
         $this->publishes([
-            __DIR__.'/public/assets' => public_path('vendor/permaxis/laravel-crudgenerator/assets'),
+            __DIR__.'/resources/assets' => resource_path('vendor/permaxis/laravel-crudgenerator/assets'),
         ], 'permaxis_crudgenerator_assets');
 
         //publish layouts
