@@ -64,3 +64,17 @@ It creates routes for resource articles. The crud interface is accessing at the 
 
 4. Publish assets, layouts
 
+Publish assets
+> php artisan vendor:publish --tag=permaxis_crudgenerator_assets
+
+It publishes assets folder in your Resources folder : resources/vendor/permaxis/laravel-crugenerator/assets
+
+The script "crudgenerator.js" asset is used by the crud interface.
+
+Publish layout
+
+> php artisan vendor:publish --tag=permaxis_crudgenerator_layouts
+
+It publishes layouts views folder in your Resources views folder : resources/views/vendor/permaxis/laravel-crugenerator.
+The views for articles folder  extend the  layout "admin.blade.php
+
