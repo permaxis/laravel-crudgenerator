@@ -8,9 +8,9 @@ The interface is based on Bootstrap 4 Theme
 
 > composer require permaxis/laravel-crudgenerator
 
-This package will also install a package dependencie named "permaxis/laravel-core", a toolbox libraries for laravel
+This package will also install a package dependency named "permaxis/laravel-core", a toolbox libraries for laravel
 
-- Register your package in your config/app.php file, add the package service provider
+- Register your package in your config/app.php file, add the package to your service provider
 
 > \Permaxis\Laravel\CrudGenerator\CrudGeneratorServiceProvider::class,
 
@@ -23,11 +23,36 @@ Execute thecommand below:
 
 > php artisan permaxis:make:crudgenerator --m=\\App\\Models\\Article --c=ArticleController --ov --oc --rn=bo
 
-It generates a controller named "ArtcileController" in your app/Http/Controllers folder
+It generates a controller named "ArticleController" in your app/Http/Controllers folder
 
 It generates a folder named "articles" in your resource views folder that contains theses views:
 
 index, create, edit, delete, form, search
+
+Here are the listed options for the package:
+```
+Description:
+  Crud generator
+
+Usage:
+  permaxis:make:crudgenerator [options]
+
+Options:
+      --m[=M]           The name of the model
+      --vd[=VD]         The sub directory of views to be created
+      --rn[=RN]         The route name prefix
+      --c[=C]           The name of the controller
+      --cd[=CD]         The path of controller to be created
+      --oc              Override creation of controller
+      --bc              Bypass creation of controller
+      --ov              Override creation of views
+      --bv              Bypass creation of views
+      --sn[=SN]         Singular name of the entity (lower)
+      --pn[=PN]         Plural name of the entity (lower)
+      --pk[=PK]         Package name
+      --api[=API]       Api enabled
+      --cmt[=CMT]       Enable comment [default: "1"]
+````
 
 ## 3. Create Routes for crud interface
 
