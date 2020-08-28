@@ -32,3 +32,25 @@ index, create, edit, delete, form, search
 
 3. Create Routes for crud interface
 
+For accessing to the crud interface, you have to create routes:
+
+Add this function to your app/Providers/AppServiceProvider.php
+
+---
+public function registerRoutes()
+    {
+        \Permaxis\Laravel\CrudGenerator\App\Services\CrudGenerator::routes(function($router) {
+            $router->routes([
+                [
+                    'resource' => 'articles',
+                    'controller' => '\App\Http\Controllers\ArticlesController',
+                    'route_name_prefix' => 'bo.articles'
+                ]
+            ]);
+        }, array('middleware' => ['web']));
+    }
+---
+
+
+
+
