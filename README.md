@@ -74,7 +74,15 @@ The script "crudgenerator.js" asset is used by the crud interface.
 Publish layout
 
 > php artisan vendor:publish --tag=permaxis_crudgenerator_layouts
+> php artisan vendor:publish --tag=permaxis_crudgenerator_include
 
-It publishes layouts views folder in your Resources views folder : resources/views/vendor/permaxis/laravel-crugenerator.
+It publishes layouts folder in your Resources views folder : resources/views/vendor/permaxis/laravel-crugenerator.
 The views for articles folder  extend the  layout "admin.blade.php
+
+It publishes include folder in your Resources views folder : resources/views/vendor/permaxis/laravel-crugenerator.
+It is used for common files
+
+
+
+
 
