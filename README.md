@@ -36,7 +36,7 @@ For accessing to the crud interface, you have to create routes:
 
 Add this function to your app/Providers/AppServiceProvider.php
 
----
+``` php
 public function registerRoutes()
     {
         \Permaxis\Laravel\CrudGenerator\App\Services\CrudGenerator::routes(function($router) {
