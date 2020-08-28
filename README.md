@@ -49,8 +49,7 @@ public function registerRoutes()
             ]);
         }, array('middleware' => ['web']));
     }
----
-
+```
 
 
 
