@@ -32,9 +32,9 @@ index, create, edit, delete, form, search
 
 3. Create Routes for crud interface
 
-For accessing to the crud interface, you have to create routes:
+For accessing to the crud interface via browser, you have to create routes:
 
-Add this function to your app/Providers/AppServiceProvider.php
+Add this function to your app/Providers/AppServiceProvider.php file
 
 ``` php
 public function registerRoutes()
@@ -50,6 +50,17 @@ public function registerRoutes()
         }, array('middleware' => ['web']));
     }
 ```
+Call this method in your register method of your AppServiceProvider class
 
+``` php
+...
+public function register()
+    {
+        $this->registerRoutes();
+    }
+...
+```
+It creates routes for resource articles. The crud interface is accessing at the url /articles
 
+4. Publish assets, layouts
 
