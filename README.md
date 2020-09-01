@@ -25,7 +25,7 @@ Execute thecommand below:
 
 It generates a controller named "ArticleController" in your app/Http/Controllers folder
 
-It generates a folder named "articles" in your resource views folder that contains theses views:
+It generates a folder named "articles" in your resource views folder that contains these views:
 
 index, create, edit, delete, form, search
 
