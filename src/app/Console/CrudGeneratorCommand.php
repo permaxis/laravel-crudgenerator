@@ -305,7 +305,7 @@ class CrudGeneratorCommand extends Command
 
                         //replace views names in layouts
                         $this->replaceViewNames($subViewsDir, $pluralModel, $file, $packageName);
-                        
+
                     };
                 }
 
