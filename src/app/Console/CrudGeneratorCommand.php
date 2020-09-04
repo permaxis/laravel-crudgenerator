@@ -233,7 +233,7 @@ class CrudGeneratorCommand extends Command
                 $this->replaceViewNames($subViewsDir,$pluralModel,$controllerFile, $packageName);
 
                 //comment attributes in controller
-                if ($enabledFields)
+                if (!$enabledFields)
                 {
                     $this->replaceInFile('\/\*bc\*\/','\/\*',$controllerFile);
                     $this->replaceInFile('\/\*ec\*\/','\*\/',$controllerFile);
@@ -281,7 +281,7 @@ class CrudGeneratorCommand extends Command
                     $this->replaceRouteNames($routeNamePrefix, $pluralModel, $file);
 
                     //comment attributes in views
-                    if ($enabledFields)
+                    if (!$enabledFields)
                     {
                         $this->replaceInFile('{{--bc--}}','{{--',$file);
                         $this->replaceInFile('{{--ec--}}','--}}',$file);
