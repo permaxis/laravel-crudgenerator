@@ -281,7 +281,7 @@ class CrudGeneratorCommand extends Command
                     $this->replaceRouteNames($routeNamePrefix, $pluralModel, $file);
 
                     //comment attributes in views
-                    if ($enabledFields)enableCom
+                    if ($enabledFields)
                     {
                         $this->replaceInFile('{{--bc--}}','{{--',$file);
                         $this->replaceInFile('{{--ec--}}','--}}',$file);
