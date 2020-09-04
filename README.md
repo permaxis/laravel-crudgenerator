@@ -26,7 +26,7 @@ For example, you have a model named Article located in app\Models folder. it ful
 
 Execute thecommand below:
 
-> php artisan permaxis:make:crudgenerator --m=\\App\\Models\\Article --c=ArticleController --ov --oc --rn=bo
+> php artisan permaxis:make:crudgenerator --m="\App\Models\Article" --c=ArticleController --ov --oc --rn=bo
 
 It generates a controller named "ArticleController" in your app/Http/Controllers folder
 
