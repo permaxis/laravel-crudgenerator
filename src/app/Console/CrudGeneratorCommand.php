@@ -283,10 +283,7 @@ class CrudGeneratorCommand extends Command
                     //comment attributes in views
                     if (!$enabledFields)
                     {
-                        $this->replaceInFile('{{--bc--}}','{{--',$file);
-                        $this->replaceInFile('{{--ec--}}','--}}',$file);
-                        $this->replaceInFile('\/\*bc\*\/','\/\*',$file);
-                        $this->replaceInFile('\/\*ec\*\/','\*\/',$file);
+                        $this->enableFields($file);
                     }
 
                     //replace views names in views
@@ -309,6 +306,12 @@ class CrudGeneratorCommand extends Command
                         //replace views names in layouts
                         $this->replaceViewNames($subViewsDir, $pluralModel, $file, $packageName);
 
+                        //comment attributes in views
+                        if (!$enabledFields)
+                        {
+                            $this->enableFields($file);
+                        }
+                        
                     };
                 }
 
@@ -384,5 +387,14 @@ class CrudGeneratorCommand extends Command
         $cmd = "sed -i 's/{$str_source}/{$str_target}/g' ".$file;
         $output = exec($cmd);
     }
+
+    public function enableFields($file)
+    {
+        $this->replaceInFile('{{--bc--}}','{{--',$file);
+        $this->replaceInFile('{{--ec--}}','--}}',$file);
+        $this->replaceInFile('\/\*bc\*\/','\/\*',$file);
+        $this->replaceInFile('\/\*ec\*\/','\*\/',$file);
+    }
+
 
 }
