@@ -4,6 +4,11 @@
 Laravel CrudGenerator is a package that install in your laravel project a simple crud (Create Read Update Delete) interface to manage your model.
 The interface is based on Bootstrap 4 Theme
 
+## Versions
+| Laravel | laravel-crud-generator |
+| --- | --- |
+| 6.0 | ^1.0 |
+
 ## 1. Install package
 
 > composer require permaxis/laravel-crudgenerator
@@ -21,7 +26,7 @@ For example, you have a model named Article located in app\Models folder. it ful
 
 Execute thecommand below:
 
-> php artisan permaxis:make:crudgenerator --m=\\App\\Models\\Article --c=ArticleController --ov --oc --rn=bo
+> php artisan permaxis:make:crudgenerator --m="\App\Models\Article" --c=ArticleController --ov --oc --rn=bo
 
 It generates a controller named "ArticleController" in your app/Http/Controllers folder
 
@@ -67,7 +72,7 @@ public function registerRoutes()
             $router->routes([
                 [
                     'resource' => 'articles',
-                    'controller' => '\App\Http\Controllers\ArticlesController',
+                    'controller' => '\App\Http\Controllers\ArticleController',
                     'route_name_prefix' => 'bo.articles'
                 ]
             ]);
@@ -86,6 +91,19 @@ public function register()
 ```
 It creates routes for resource articles. The crud interface is accessing at the url /articles
 
+| Method | Uri | Route | Action Controller | Middleware |
+| --- | --- | --- | --- | --- |
+| GET\|HEAD | articles             | bo.articles.index            | App\Http\Controllers\ArticleController@index           | web          |
+| POST     | articles             | bo.articles.store            | App\Http\Controllers\ArticleController@store           | web          |
+| DELETE   | articles             | bo.articles.destroy_entities | App\Http\Controllers\ArticleController@destroyEntities | web          |
+| GET\|HEAD | articles/create      | bo.articles.create           | App\Http\Controllers\ArticleController@create          | web          |
+| PUT      | articles/{id}        | bo.articles.update           | App\Http\Controllers\ArticleController@update          | web          |
+| DELETE   | articles/{id}        | bo.articles.destroy          | App\Http\Controllers\ArticleController@destroy         | web          |
+| GET\|HEAD | articles/{id}/delete | bo.articles.delete           | App\Http\Controllers\ArticleController@delete          | web          |
+| GET\|HEAD | articles/{id}/edit   | bo.articles.edit             | App\Http\Controllers\ArticleController@edit            | web          |
+| GET\|HEAD | articles/{id}/show   | bo.articles.show             | App\Http\Controllers\ArticleController@show            | web          | 
+
+
 ## 4. Publish assets
 
 > php artisan vendor:publish --tag=permaxis_crudgenerator_assets
@@ -93,6 +111,8 @@ It creates routes for resource articles. The crud interface is accessing at the 
 It publishes assets folder in your Resources folder : resources/vendor/permaxis/laravel-crugenerator/assets
 
 The script "crudgenerator.js" asset is used by the crud interface.
+
+Package assets resources/vendor/permaxis/laravel-crugenerator/assets/crudgenerator.js that you can publish to your public directory or use laravel mix and include it in your js/all.js
 
 ## 5. Publish layouts
 
