@@ -1,2 +1,1 @@
-<nav class="nav flex-column">
-</nav>
+<nav class="nav flex-column"></nav>
