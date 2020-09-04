@@ -32,7 +32,7 @@ class CrudGeneratorCommand extends Command
                            {--pn= : Plural name of the entity (lower)}
                            {--pk= : Package name}
                            {--api= : Api enabled}
-                           {--ef=1 : Enable fields}
+                           {--ef=0 : Enable fields}
                            ';
 
     /**
