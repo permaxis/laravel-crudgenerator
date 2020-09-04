@@ -1,2 +1,3 @@
-<nav class="nav flex-column">
-</nav>
+{{--bc--}}<nav class="nav flex-column">
+    {!! pxcg_menu_item('Entities','crudgenerator.entities.index') !!}
+</nav>{{--ec--}}
