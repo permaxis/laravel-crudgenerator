@@ -1,7 +1,7 @@
 {
     "name": "permaxis/laravel-crudgenerator",
-    "description": "Generate a front presentation crud",
-    "type": "project",
+    "description": "Generate a crud (create read update delete) interface based on model laravel",
+    "type": "package",
     "license": "MIT",
     "authors": [
         {
@@ -10,7 +10,9 @@
         }
     ],
     "require": {
-        "laravelcollective/html": "^6.0"
+        "laravelcollective/html": "^6.0",
+        "permaxis/laravel-core": "^1.0"
+
     },
     "autoload": {
         "psr-4": {
