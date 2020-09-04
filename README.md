@@ -91,6 +91,19 @@ public function register()
 ```
 It creates routes for resource articles. The crud interface is accessing at the url /articles
 
+| Method | Uri | Route | Action Controller | Middleware |
+| --- | --- | --- | --- | --- |
+| GET\|HEAD | articles             | bo.articles.index            | App\Http\Controllers\ArticleController@index           | web          |
+| POST     | articles             | bo.articles.store            | App\Http\Controllers\ArticleController@store           | web          |
+| DELETE   | articles             | bo.articles.destroy_entities | App\Http\Controllers\ArticleController@destroyEntities | web          |
+| GET\|HEAD | articles/create      | bo.articles.create           | App\Http\Controllers\ArticleController@create          | web          |
+| PUT      | articles/{id}        | bo.articles.update           | App\Http\Controllers\ArticleController@update          | web          |
+| DELETE   | articles/{id}        | bo.articles.destroy          | App\Http\Controllers\ArticleController@destroy         | web          |
+| GET\|HEAD | articles/{id}/delete | bo.articles.delete           | App\Http\Controllers\ArticleController@delete          | web          |
+| GET\|HEAD | articles/{id}/edit   | bo.articles.edit             | App\Http\Controllers\ArticleController@edit            | web          |
+| GET\|HEAD | articles/{id}/show   | bo.articles.show             | App\Http\Controllers\ArticleController@show            | web          | 
+
+
 ## 4. Publish assets
 
 > php artisan vendor:publish --tag=permaxis_crudgenerator_assets
