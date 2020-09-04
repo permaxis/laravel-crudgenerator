@@ -72,7 +72,7 @@ public function registerRoutes()
             $router->routes([
                 [
                     'resource' => 'articles',
-                    'controller' => '\App\Http\Controllers\ArticlesController',
+                    'controller' => '\App\Http\Controllers\ArticleController',
                     'route_name_prefix' => 'bo.articles'
                 ]
             ]);
