@@ -4,6 +4,11 @@
 Laravel CrudGenerator is a package that install in your laravel project a simple crud (Create Read Update Delete) interface to manage your model.
 The interface is based on Bootstrap 4 Theme
 
+## Versions
+| Laravel | laravel-crud-generator |
+| --- | --- |
+| 6.0 | ^1.0 |
+
 ## 1. Install package
 
 > composer require permaxis/laravel-crudgenerator
