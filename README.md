@@ -112,6 +112,8 @@ It publishes assets folder in your Resources folder : resources/vendor/permaxis/
 
 The script "crudgenerator.js" asset is used by the crud interface.
 
+Package assets resources/vendor/permaxis/laravel-crugenerator/assets/crudgenerator.js that you can publish to your public directory or use laravel mix and include it in your js/all.js
+
 ## 5. Publish layouts
 
 Publish include folder in Resources views folder : resources/views/vendor/permaxis/laravel-crugenerator.
