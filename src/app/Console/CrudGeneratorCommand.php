@@ -32,7 +32,7 @@ class CrudGeneratorCommand extends Command
                            {--pn= : Plural name of the entity (lower)}
                            {--pk= : Package name}
                            {--api= : Api enabled}
-                           {--cmt=1 : Enable comment}
+                           {--ef=1 : Enable fields}
                            ';
 
     /**
@@ -144,7 +144,7 @@ class CrudGeneratorCommand extends Command
         $pluralEntityName =  $this->option('pn');
         $packageName = $this->option('pk');
         $enabledApi = $this->option('api');
-        $enabledComment = $this->option('cmt');
+        $enabledFields = $this->option('ef');
 
         if (!empty($enabledApi) && $enabledApi == 1)
         {
@@ -233,7 +233,7 @@ class CrudGeneratorCommand extends Command
                 $this->replaceViewNames($subViewsDir,$pluralModel,$controllerFile, $packageName);
 
                 //comment attributes in controller
-                if ($enabledComment)
+                if ($enabledFields)
                 {
                     $this->replaceInFile('\/\*bc\*\/','\/\*',$controllerFile);
                     $this->replaceInFile('\/\*ec\*\/','\*\/',$controllerFile);
@@ -281,7 +281,7 @@ class CrudGeneratorCommand extends Command
                     $this->replaceRouteNames($routeNamePrefix, $pluralModel, $file);
 
                     //comment attributes in views
-                    if ($enabledComment)
+                    if ($enabledFields)enableCom
                     {
                         $this->replaceInFile('{{--bc--}}','{{--',$file);
                         $this->replaceInFile('{{--ec--}}','--}}',$file);
