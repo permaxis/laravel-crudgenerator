@@ -24,7 +24,7 @@ This package will also install a package dependency named "permaxis/laravel-core
 
 For example, you have a model named Article located in app\Models folder. it full namespace is App\Models\Article
 
-Execute thecommand below:
+Execute the command below:
 
 > php artisan permaxis:make:crudgenerator --m="\App\Models\Article" --c=ArticleController --ov --oc --rn=bo
 
