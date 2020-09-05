@@ -1,6 +1,6 @@
 <?php
 
-namespace Permaxis\Laravel\CrudGenerator\App\Console;
+namespace Permaxis\LaravelCrudGenerator\App\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
@@ -222,7 +222,7 @@ class CrudGeneratorCommand extends Command
                 //echo $cmd;
                 $output = exec($cmd);
 
-                //replace Model Class Permaxis\Laravel\CrudGenerator\app\Entities\ApiEntity by modelClass
+                //replace Model Class Permaxis\LaravelCrudGenerator\app\Entities\ApiEntity by modelClass
                 $cmd = "sed -i 's/use\sPermaxis\\\\Laravel\\\\CrudGenerator\\\\App\\\\Entities\\\\{$modelSourceClass}/use ".str_replace('\\','\\\\',$modelClass)."/g' ".$controllerFile;
                 $output = exec($cmd);
 
