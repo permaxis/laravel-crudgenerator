@@ -68,7 +68,7 @@ Add this function to your app/Providers/AppServiceProvider.php file
 ``` php
 public function registerRoutes()
     {
-        \Permaxis\Laravel\CrudGenerator\App\Services\CrudGenerator::routes(function($router) {
+        \Permaxis\Laravel\CrudGenerator\app\Services\CrudGenerator::routes(function($router) {
             $router->routes([
                 [
                     'resource' => 'articles',
