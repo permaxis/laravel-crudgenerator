@@ -16,8 +16,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/", 
-            "Permaxis\\LaravelCrudGenerator\\": "src"
+            "Permaxis\\LaravelCrudGenerator\\": "src",
+            "Permaxis\\LaravelCrudGenerator\\App\\": "src/app"
         }
     }
 }
