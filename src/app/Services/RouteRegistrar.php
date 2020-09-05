@@ -1,5 +1,5 @@
 <?php
-namespace Permaxis\LaravelCrudGenerator\App\Services;
+namespace Permaxis\LaravelCrudGenerator\app\Services;
 
 use Illuminate\Contracts\Routing\Registrar as Router;
 use Illuminate\Support\Facades\Route;

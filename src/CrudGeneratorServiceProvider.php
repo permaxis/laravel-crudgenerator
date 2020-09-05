@@ -3,7 +3,7 @@
 namespace Permaxis\LaravelCrudGenerator;
 
 use Illuminate\Support\ServiceProvider;
-use Permaxis\LaravelCrudGenerator\App\Console\CrudGeneratorCommand;
+use Permaxis\LaravelCrudGenerator\app\Console\CrudGeneratorCommand;
 
 class CrudGeneratorServiceProvider extends ServiceProvider
 {

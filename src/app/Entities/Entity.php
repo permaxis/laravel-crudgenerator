@@ -6,7 +6,7 @@
  * Time: 12:40
  */
 
-namespace Permaxis\LaravelCrudGenerator\App\Entities;
+namespace Permaxis\LaravelCrudGenerator\app\Entities;
 
 use Permaxis\Laravel\Core\App\Services\Entities\AbstractApiModelManager;
 use Permaxis\Laravel\Core\App\Services\Entities\ApiValidateModelManager;

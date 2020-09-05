@@ -1,6 +1,6 @@
 <?php
 
-namespace Permaxis\LaravelCrudGenerator\App\Entities;
+namespace Permaxis\LaravelCrudGenerator\app\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Permaxis\Laravel\Core\App\Services\Entities\ModelManager;

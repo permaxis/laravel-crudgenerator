@@ -1,6 +1,6 @@
 <?php
 
-namespace Permaxis\LaravelCrudGenerator\App\Console;
+namespace Permaxis\LaravelCrudGenerator\app\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;

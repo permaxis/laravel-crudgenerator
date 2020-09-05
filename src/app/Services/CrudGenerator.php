@@ -6,7 +6,7 @@
  * Time: 15:35
  */
 
-namespace Permaxis\LaravelCrudGenerator\App\Services;
+namespace Permaxis\LaravelCrudGenerator\app\Services;
 
 use Illuminate\Support\Facades\Route;
 
