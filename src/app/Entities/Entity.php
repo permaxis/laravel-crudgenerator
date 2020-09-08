@@ -8,8 +8,8 @@
 
 namespace Permaxis\LaravelCrudGenerator\app\Entities;
 
-use Permaxis\Laravel\Core\App\Services\Entities\AbstractApiModelManager;
-use Permaxis\Laravel\Core\App\Services\Entities\ApiValidateModelManager;
+use Permaxis\LaravelCore\App\Services\Entities\AbstractApiModelManager;
+use Permaxis\LaravelCore\App\Services\Entities\ApiValidateModelManager;
 
 class Entity extends AbstractApiModelManager
 {
