@@ -63,7 +63,7 @@ Options:
 
 For accessing to the crud interface via browser, you have to create routes:
 
-Add this function to your app/Providers/AppServiceProvider.php file
+Add this function to your app/Providers/RouteServiceProvider.php file
 
 ``` php
 public function registerRoutes()
@@ -79,13 +79,15 @@ public function registerRoutes()
         }, array('middleware' => ['web']));
     }
 ```
-Call this method in your register method of your AppServiceProvider class
+Call this method in your register method of your RouteServiceProvider class
 
 ``` php
 ...
-public function register()
+public function map()
     {
+        ...
         $this->registerRoutes();
+
     }
 ...
 ```
