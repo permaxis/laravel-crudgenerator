@@ -12,30 +12,13 @@ use Illuminate\Support\Facades\Route;
  */
 class RouteRegistrar
 {
-    /**
-     * The router implementation.
-     *
-     * @var \Illuminate\Contracts\Routing\Registrar
-     */
-    protected $router;
-
-    /**
-     * Create a new route registrar instance.
-     *
-     * @param  \Illuminate\Contracts\Routing\Registrar  $router
-     * @return void
-     */
-    public function __construct(Router $router)
-    {
-        $this->router = $router;
-    }
 
     /**
      * Register routes for backend api logger.
      *
      * @return void
      */
-    public function routes($options = array())
+    public static function routes($options = array())
     {
         foreach ($options as $option)
         {
