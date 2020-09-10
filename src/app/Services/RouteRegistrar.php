@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
  * Time: 15:24
  */
 class RouteRegistrar
-{
+{ 
 
     /**
      * Register routes for backend api logger.
