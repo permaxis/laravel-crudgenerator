@@ -14,7 +14,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
-use Permaxis\LaravelCore\App\Services\Paginator\Paginator;
+use Permaxis\LaravelCore\app\Services\Paginator\Paginator;
 use Permaxis\LaravelCrudGenerator\app\Entities\Entity as Entity;
 use Symfony\Component\HttpFoundation\JsonResponse;
 

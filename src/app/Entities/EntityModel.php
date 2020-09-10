@@ -3,7 +3,7 @@
 namespace Permaxis\LaravelCrudGenerator\app\Entities;
 
 use Illuminate\Database\Eloquent\Model;
-use Permaxis\LaravelCore\App\Services\Entities\ModelManager;
+use Permaxis\LaravelCore\app\Services\Entities\ModelManager;
 
 class EntityModel extends Model
 {
