@@ -68,15 +68,15 @@ Add this function to your app/Providers/RouteServiceProvider.php file
 ``` php
 public function registerRoutes()
     {
-        \Permaxis\Laravel\CrudGenerator\app\Services\CrudGenerator::routes(function($router) {
-            $router->routes([
+       Route::name('bo.')->prefix('backoffice')->middleware(['web'])->group(function ()  {
+            \Permaxis\LaravelCrudGenerator\app\Services\RouteRegistrar::routes([
                 [
                     'resource' => 'articles',
                     'controller' => '\App\Http\Controllers\ArticleController',
-                    'route_name_prefix' => 'bo.articles'
+                    'route_name_prefix' => 'articles'
                 ]
             ]);
-        }, array('middleware' => ['web']));
+        });
     }
 ```
 Call this method in your register method of your RouteServiceProvider class
@@ -91,7 +91,7 @@ public function map()
     }
 ...
 ```
-It creates routes for resource articles. The crud interface is accessing at the url /articles
+It creates routes for resource articles. The crud interface is accessing at the url /backoffice/articles
 
 | Method | Uri | Route | Action Controller | Middleware |
 | --- | --- | --- | --- | --- |
