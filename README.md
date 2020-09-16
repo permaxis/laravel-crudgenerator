@@ -185,8 +185,8 @@ resources/vendor/permaxis/laravel-crugenerator/assets/crudgenerator.js that you 
 
 You can see a demo at this address 
 url : https://laravelcrudgenerator.permaxis.fr/
-login: 
-password: 
+login: demo
+password: demopwd
 
 
 
