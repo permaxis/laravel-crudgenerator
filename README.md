@@ -9,6 +9,13 @@ The interface is based on Bootstrap 4 Theme
 | --- | --- |
 | 6.0 | ^1.0 |
 
+## Demo
+You can see a demo at this address 
+url : https://laravelcrudgenerator.permaxis.fr/
+
+- login: demo@gmail.com
+- password: demopwd
+
 ## 1. Install package
 
 > composer require permaxis/laravel-crudgenerator
@@ -186,7 +193,7 @@ resources/vendor/permaxis/laravel-crugenerator/assets/crudgenerator.js that you 
 You can see a demo at this address 
 url : https://laravelcrudgenerator.permaxis.fr/
 
-- login: demo
+- login: demo@gmail.com
 - password: demopwd
 
 
