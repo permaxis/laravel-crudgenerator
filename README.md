@@ -181,7 +181,12 @@ https://use.fontawesome.com/releases/v5.14.0/css/all.css
 resources/vendor/permaxis/laravel-crugenerator/assets/crudgenerator.js that you can publish to your public directory or use laravel mix and include it in your js/all.js
 
 
+## 5. Onine Demo
 
+You can see a demo at this address 
+url : https://laravelcrudgenerator.permaxis.fr/
+login: 
+password: 
 
 
 
