@@ -14,7 +14,7 @@ You can see a demo at this address
 url : https://laravelcrudgenerator.permaxis.fr/
 
 - login: demo@gmail.com
-- password: demopwd
+- password: demolaravel
 
 ## 1. Install package
 
